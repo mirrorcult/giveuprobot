@@ -1,0 +1,32 @@
+{
+	"compilerOptions": {
+		"source-path": [
+			"src"
+		],
+		"output": "bin/GURTrainer.swf",
+		"default-frame-rate": 60,
+		"default-background-color": "#000000",
+		"default-size": {
+			"width": 640,
+			"height": 480
+		},
+		"target-player": "27.0",
+		"accessible": false,
+		"advanced-telemetry": false,
+		"benchmark": false,
+		"optimize": true,
+		"omit-trace-statements": true,
+		"show-unused-type-selector-warnings": true,
+		"strict": true,
+		"use-network": true,
+		"use-resource-bundle-metadata": true,
+		"warnings": true,
+		"verbose-stacktraces": false,
+		"static-link-runtime-shared-libraries": true
+	},
+	"files": [
+		"src/Main.as"
+	],
+	"config": "air",
+	"application": "application.xml"
+}

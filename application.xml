@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<application xmlns="http://ns.adobe.com/air/application/32.0">
+  <id>GURTrainer</id>
+  <versionNumber>1.0</versionNumber>
+  <filename>GURTrainer</filename>
+  <name>
+    <text xml:lang="en">GUR Trainer</text>
+  </name>
+  <copyright>.v.</copyright>
+  <initialWindow>
+    <title>GUR Trainer</title>
+    <content>GURTrainer.swf</content>
+    <systemChrome>standard</systemChrome>
+    <transparent>false</transparent>
+    <visible>true</visible>
+    <minimizable>false</minimizable>
+    <maximizable>false</maximizable>
+    <resizable>false</resizable>
+    <aspectRatio>landscape</aspectRatio>
+    <renderMode>direct</renderMode>
+    <autoOrients>false</autoOrients>
+    <fullScreen>true</fullScreen>
+    <softKeyboardBehavior>none</softKeyboardBehavior>
+    <depthAndStencil>true</depthAndStencil>
+    <requestedDisplayResolution>high</requestedDisplayResolution>
+  </initialWindow>
+  <!--
+	More options:
+	http://livedocs.adobe.com/flex/3/html/File_formats_1.html#1043413
+	-->
+  <description>
+    <text xml:lang="en">GUR Trainer</text>
+  </description>
+  <versionLabel>2020.11.10.0</versionLabel>
+  <android>
+    <manifestAdditions><![CDATA[<manifest android:installLocation="auto" xmlns:android="http://schemas.android.com/apk/res/android" />]]></manifestAdditions>
+  </android>
+  <supportedLanguages>en</supportedLanguages>
+</application>
