@@ -64,13 +64,13 @@ package jam
       // l52, h10
       public function toString() : String
       {
-         
+         return getPrefix() + levelNum.toString();
       }
 
       // l or h
       public function getPrefix() : String
       {
-
+         return "";
       }
 
       // GUR TRAINER STOP
