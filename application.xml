@@ -13,9 +13,9 @@
     <systemChrome>standard</systemChrome>
     <transparent>false</transparent>
     <visible>true</visible>
-    <minimizable>false</minimizable>
-    <maximizable>false</maximizable>
-    <resizable>false</resizable>
+    <minimizable>true</minimizable>
+    <maximizable>true</maximizable>
+    <resizable>true</resizable>
     <aspectRatio>landscape</aspectRatio>
     <renderMode>direct</renderMode>
     <autoOrients>false</autoOrients>
@@ -32,8 +32,5 @@
     <text xml:lang="en">GUR Trainer</text>
   </description>
   <versionLabel>2020.11.10.0</versionLabel>
-  <android>
-    <manifestAdditions><![CDATA[<manifest android:installLocation="auto" xmlns:android="http://schemas.android.com/apk/res/android" />]]></manifestAdditions>
-  </android>
   <supportedLanguages>en</supportedLanguages>
 </application>

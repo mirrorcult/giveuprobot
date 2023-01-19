@@ -37,6 +37,8 @@ package net.flashpunk.debug
 			Input.define("frameadvance1", Key.F);
 			Input.define("frameadvance", Key.G);
 			Input.define("hitboxes", Key.H);
+			Input.define("camleft", Key.Q);
+			Input.define("camright", Key.E)
 		}
 		
 		/**

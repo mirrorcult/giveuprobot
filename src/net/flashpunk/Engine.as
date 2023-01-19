@@ -21,6 +21,9 @@
 	 */
 	public class Engine extends MovieClip
 	{
+		// maddy variable!
+		public static var flash:Boolean = false;
+
 		/**
 		 * If the game should stop updating/rendering.
 		 */

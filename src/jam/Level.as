@@ -93,6 +93,7 @@ package jam
       
       override public function update() : void
       {
+         super.update()
          if(this.countTime)
          {
             this.time++;

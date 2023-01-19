@@ -162,7 +162,8 @@ package jam
       
       private function setSprite(to:Spritemap, del:uint = 0) : void
       {
-         to.flipped = (graphic as Spritemap).flipped;
+         if (graphic)
+            to.flipped = (graphic as Spritemap).flipped;
          if(graphic != to)
          {
             graphic = to;

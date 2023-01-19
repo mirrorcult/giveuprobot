@@ -92,7 +92,7 @@ package jam
       public function kill() : void
       {
          var color:uint = 0;
-         var p:Point = null;
+         var p:Point = new Point;
          if(this.hitWall)
          {
             color = 65535;
@@ -142,7 +142,7 @@ package jam
       {
          var color:uint = 0;
          var i:int = 0;
-         var p:Point = null;
+         var p:Point = new Point;
          if(parts)
          {
             if(this.hitWall)
@@ -174,7 +174,7 @@ package jam
       
       override public function update() : void
       {
-         var p:Point = null;
+         var p:Point = new Point;
          var obj:Entity = null;
          var onSaw:Boolean = false;
          var mx:Number = NaN;

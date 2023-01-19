@@ -51,6 +51,7 @@ package jam
       
       override public function update() : void
       {
+         super.update();
          this.bg.x = this.bg.x - 0.25;
          this.bg.y = this.bg.y - 0.25;
       }

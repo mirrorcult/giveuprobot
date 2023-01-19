@@ -8,6 +8,11 @@ package
    import net.flashpunk.utils.Input;
    import net.flashpunk.utils.Key;
    import net.flashpunk.FP;
+   import flash.display.StageAlign;
+   import flash.display.StageQuality;
+   import flash.display.StageScaleMode;
+   import flash.display.StageDisplayState;
+   import net.flashpunk.debug.Console;
    
    public class Main extends Engine
    {
@@ -15,8 +20,6 @@ package
       {
          super(320,240,60, true);
          FP.screen.scale = 2;
-
-         // TODO MIRR go to MainMenu thru init
       }
       
       override public function init() : void
@@ -29,6 +32,17 @@ package
          Input.define("grapple",Key.Z,Key.A);
          Input.define("skip",Key.ENTER);
          FP.world = new MainMenu();
+
+         FP.console.enable();
+         FP.console.visible = false;
+      }
+
+      override public function setStageProperties():void
+      {
+         stage.align = StageAlign.TOP_LEFT;
+         stage.quality = StageQuality.HIGH;
+         stage.scaleMode = StageScaleMode.SHOW_ALL;
+         stage.displayState = StageDisplayState.NORMAL;
       }
    }
 }

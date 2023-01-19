@@ -57,7 +57,7 @@ package jam
          this.y = y - size / 2;
          this.color = color;
          this.size = size;
-         var p:Point;
+         var p:Point = new Point;
          FP.angleXY(p,speed);
          this.hSpeed = p.x;
          this.vSpeed = p.y;

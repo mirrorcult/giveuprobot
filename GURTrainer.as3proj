@@ -8,10 +8,11 @@
     <movie fps="60" />
     <movie width="640" />
     <movie height="480" />
-    <movie version="28" />
+    <movie version="32" />
     <movie minorVersion="0" />
     <movie platform="AIR" />
     <movie background="#000000" />
+    <movie preferredSDK="K:\FlexSDK" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>

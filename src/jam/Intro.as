@@ -6,6 +6,7 @@ package jam
    import net.flashpunk.Tween;
    import net.flashpunk.FP;
    import net.flashpunk.Sfx;
+   import net.flashpunk.Engine;
    
    public class Intro extends MenuWorld
    {
@@ -65,12 +66,12 @@ package jam
       override public function update() : void
       {
          super.update();
-         this.text.text = this.textCur + (!!this.underscore?"_":"");
+         this.text.text = this.textCur + (this.underscore?"_":"");
          if(this.canGo && Input.pressed("skip"))
          {
             this.canGo = false;
             Assets.setMusic(new Sfx(Assets.MusGame));
-            //Engine.flash = true;
+            Engine.flash = true;
             add(new FuzzTransition(FuzzTransition.NEW,null,true));
          }
       }
@@ -289,7 +290,7 @@ package jam
             if(Stats.saveData.mode == 0)
             {
                Assets.setMusic(new Sfx(Assets.MusGame));
-               //Engine.flash = true;
+               Engine.flash = true;
             }
             this.alarm.reset(80);
          }
@@ -359,8 +360,7 @@ package jam
             sfx.volume = Assets.VCVOL;
             sfx.play();
             Assets.setMusic(new Sfx(Assets.MusGame));
-            // TODO engine what the fuck is this?
-            // Engine.flash = true; 
+            Engine.flash = true; 
             this.alarm.reset(90);
          }
          else if(this.mode == 50)
@@ -376,7 +376,7 @@ package jam
          var t:Text = null;
          super.begin();
          Assets.setMusic(new Sfx(Assets.MusIntro));
-         //Engine.flash = false;
+         Engine.flash = false;
          addTween(this.alarmUnderscore);
          addTween(this.alarmText);
          addTween(this.alarm);
