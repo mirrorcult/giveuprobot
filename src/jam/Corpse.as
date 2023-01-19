@@ -13,8 +13,11 @@ package jam
          super();
          this.x = x;
          this.y = y;
-         this.graphic = spr = new Spritemap(ImgIdle,10,18,true,false,5,13); // TODO MIRR huh? 5 13?
-         spr.delay = 0; // TODO mirr what??
+         this.graphic = spr = new Spritemap(Player_ImgIdle,10,18);
+         spr.originX = 5;
+         spr.originY = 13;
+         spr.flipped = true;
+         spr.rate = 0;
          spr.color = 4294967295;
       }
       

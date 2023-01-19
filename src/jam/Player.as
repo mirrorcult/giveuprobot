@@ -3,46 +3,49 @@ package jam
    import net.flashpunk.tweens.misc.Alarm;
    import net.flashpunk.graphics.Spritemap;
    import net.flashpunk.utils.Input;
+   import net.flashpunk.FP;
+   import net.flashpunk.Tween;
+   import net.flashpunk.Sfx;
+   import net.flashpunk.utils.Draw;
    
    public class Player extends Moveable
    {
       
-      private static const ImgThrow:Class = Player_ImgThrow;
+      private var ImgThrow:Class = Player_ImgThrow;
       
-      private static const ImgThrowDown:Class = Player_ImgThrowDown;
+      private var ImgThrowDown:Class = Player_ImgThrowDown;
       
-      public static const SprIdle:Spritemap = new Spritemap(ImgIdle,10,18,true,false,5,13);
+      public var SprIdle:Spritemap;
       
-      private static const SprThrowUp:Spritemap = new Spritemap(ImgThrowUp,10,17,true,false,5,12);
+      private var SprThrowUp:Spritemap;
       
-      private static const ImgThrowUp:Class = Player_ImgThrowUp;
+      private var ImgThrowUp:Class = Player_ImgThrowUp;
       
-      private static const SprThrow:Spritemap = new Spritemap(ImgThrow,10,17,true,false,5,12);
+      private var SprThrow:Spritemap;
       
-      private static const SprThrowDown:Spritemap = new Spritemap(ImgThrowDown,10,17,true,false,5,12);
+      private var SprThrowDown:Spritemap;
       
       private static const ImgFall:Class = Player_ImgFall;
       
       private static const ImgIdle:Class = Player_ImgIdle;
       
-      private static const SprJump:Spritemap = new Spritemap(ImgJump,10,18,true,false,5,13);
+      private var SprJump:Spritemap;
       
       private static const ImgRun:Class = Player_ImgRun;
       
       private static const ImgGrapple:Class = Player_ImgGrapple;
       
-      private static const SprGrappleAir:Spritemap = new Spritemap(ImgGrappleAir,12,17,true,false,6,10);
+      private var SprGrappleAir:Spritemap;
       
       private static const ImgJump:Class = Player_ImgJump;
       
-      private static const SprRun:Spritemap = new Spritemap(ImgRun,12,17,true,false,6,12);
+      private var SprRun:Spritemap;
       
-      private static const SprFall:Spritemap = new Spritemap(ImgFall,10,17,true,false,5,12);
+      private var SprFall:Spritemap;
       
-      private static const SprGrapple:Spritemap = new Spritemap(ImgGrapple,12,17,true,false,6,12);
+      private var SprGrapple:Spritemap;
       
       private static const ImgGrappleAir:Class = Player_ImgGrappleAir;
-       
       
       private var varJ:Boolean = false;
       
@@ -80,6 +83,42 @@ package jam
       
       public function Player(level:Level, x:int, y:int)
       {
+         SprIdle = new Spritemap(ImgIdle,10,18);
+         SprIdle.flipped = true;
+         SprIdle.originX = 5;
+         SprIdle.originY = 13;
+         SprThrowUp = new Spritemap(ImgThrowUp,10,17);
+         SprThrowUp.flipped = true;
+         SprThrowUp.originX = 5;
+         SprThrowUp.originY = 12;
+         SprThrow = new Spritemap(ImgThrow,10,17);
+         SprThrow.flipped = true;
+         SprThrow.originX = 5;
+         SprThrow.originY = 12;
+         SprThrowDown = new Spritemap(ImgThrowDown,10,17);
+         SprThrowDown.flipped = true;
+         SprThrowDown.originX = 5;
+         SprThrowDown.originY = 12;
+         SprJump = new Spritemap(ImgJump,10,18);
+         SprJump.flipped = true;
+         SprJump.originX = 5;
+         SprJump.originY = 13;
+         SprGrappleAir = new Spritemap(ImgGrappleAir,12,17);
+         SprGrappleAir.flipped = true;
+         SprGrappleAir.originX = 6;
+         SprGrappleAir.originY = 10;
+         SprRun = new Spritemap(ImgRun,12,17);
+         SprRun.flipped = true;
+         SprRun.originX = 6;
+         SprRun.originY = 12;
+         SprFall = new Spritemap(ImgFall,10,17);
+         SprFall.flipped = true;
+         SprFall.originX = 5;
+         SprFall.originY = 12;
+         SprGrapple = new Spritemap(ImgGrapple,12,17);
+         SprGrapple.flipped = true;
+         SprGrapple.originX = 6;
+         SprGrapple.originY = 12;
          this.alarmVarJTime = new Alarm(this.VARJ_TIME,this.onVarJTime,Tween.PERSIST);
          super();
          this.level = level;
@@ -98,7 +137,8 @@ package jam
       
       public function die(b:Block = null) : void
       {
-         FP.play(Assets.SndDie);
+         var sfx:Sfx = new Sfx(Assets.SndDie);
+         sfx.play();
          this.level.screenShake(20);
          active = false;
          visible = false;
@@ -122,12 +162,13 @@ package jam
       
       private function setSprite(to:Spritemap, del:uint = 0) : void
       {
-         if(sprite != to)
+         to.flipped = (graphic as Spritemap).flipped;
+         if(graphic != to)
          {
-            sprite = to;
-            image = 0;
+            graphic = to;
+            to.frame = 0;
          }
-         delay = del;
+         to.rate = del;
       }
       
       override public function update() : void
@@ -144,7 +185,7 @@ package jam
             {
                this.level.createParticles(1,x,y + 6,2,16777215,3,1,0.3,0.1,90,15,20,5);
             }
-            flipX = false;
+            (graphic as Spritemap).flipped = false;
             this.dir = 1;
             if(this.hSpeed < this.MAX_RUN)
             {
@@ -157,7 +198,7 @@ package jam
             {
                this.level.createParticles(1,x,y + 6,2,16777215,3,1,0.3,0.1,90,15,20,5);
             }
-            flipX = true;
+            (graphic as Spritemap).flipped = true;
             this.dir = -1;
             if(this.hSpeed > -this.MAX_RUN)
             {
@@ -177,7 +218,8 @@ package jam
          }
          else if(Input.pressed("grapple"))
          {
-            FP.play(Assets.SndThrow);
+            var sfx:Sfx = new Sfx(Assets.SndGrapple);
+            sfx.play();
             FP.world.add(this.grapple = new Grapple(this.level,this,x,y,this.dir));
          }
          if(!this.grappleWall)
@@ -190,7 +232,8 @@ package jam
                   this.varJ = true;
                   this.alarmVarJTime.start();
                   this.vSpeed = this.JUMP;
-                  FP.play(Assets.SndJump);
+                  var sfxj:Sfx = new Sfx(Assets.SndJump);
+                  sfxj.play();
                }
             }
             else
@@ -265,7 +308,8 @@ package jam
          {
             this.setSprite(SprFall);
          }
-         FP.camera.moveTo(x,y);
+         FP.camera.x = x;
+         FP.camera.y = y;
          if(x > (FP.world as Level).width + originX - 1)
          {
             if(this.grapple)
@@ -335,7 +379,7 @@ package jam
             {
                c = 4294967040;
             }
-            drawLinePlus(this.grapple.x,this.grapple.y,x + ax,y + ay - originY - 4,c,1,2);
+            Draw.linePlus(this.grapple.x,this.grapple.y,x + ax,y + ay - originY - 4,c,1,2);
          }
          x = x + ax;
          y = y + ay;

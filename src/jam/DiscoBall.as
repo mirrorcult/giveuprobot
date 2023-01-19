@@ -2,14 +2,14 @@ package jam
 {
    import net.flashpunk.Entity;
    import net.flashpunk.graphics.Spritemap;
+   import net.flashpunk.FP;
    
    public class DiscoBall extends Entity
    {
       
       private static const ImgBall:Class = DiscoBall_ImgBall;
       
-      public static const SprBall:Spritemap = new Spritemap(ImgBall,64,64,false,false,32,32);
-       
+      public var SprBall:Spritemap;
       
       private var appear:Boolean = false;
       
@@ -18,16 +18,15 @@ package jam
          super();
          this.x = x;
          this.y = y;
-         sprite = SprBall;
-         delay = 0;
-         alpha = 0.1;
+         graphic = SprBall = new Spritemap(ImgBall,64,64);
+         SprBall.alpha = 0.1;
       }
       
       override public function update() : void
       {
-         if(scaleX > 1)
+         if(SprBall.scaleX > 1)
          {
-            scaleX = scaleY = Math.max(1,scaleX - 0.05);
+           SprBall. scaleX = SprBall.scaleY = Math.max(1, SprBall.scaleX - 0.05);
          }
          else if(this.appear)
          {
@@ -37,9 +36,9 @@ package jam
       
       public function start() : void
       {
-         delay = 10;
-         alpha = 1;
-         scaleX = scaleY = 1.4;
+         SprBall.rate = 10;
+         SprBall.alpha = 1;
+         SprBall. scaleX = SprBall.scaleY = 1.4;
          this.appear = true;
          (FP.world as MenuWorld).createParticles(30,x,y,35,16777215,4,2,0.2,0.1,0,180,40,10);
          (FP.world as MenuWorld).createParticles(30,x,y,35,16777215,4,2,0.2,0.1,0,180,40,10,5);
