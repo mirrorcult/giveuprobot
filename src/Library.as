@@ -191,12 +191,6 @@ package
 		
 		[Embed(source = "assets/GiveUpRobot.swf", symbol = "Block_ImgTiles")]
 		static public var Block_ImgTiles:Class;
-
-		[Embed(source = "assets/images/lgballt.png")]
-		static public var LGBallT_ImgBall:Class;
-
-		[Embed(source = "assets/images/widebot.png")]
-		static public var Widebot_ImgBot:Class;
 		
 		[Embed(source = "assets/GiveUpRobot.swf", symbol = "DiscoBall_ImgBall")]
 		static public var DiscoBall_ImgBall:Class;
