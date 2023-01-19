@@ -4,24 +4,26 @@ package jam
    import net.flashpunk.graphics.Text;
    import net.flashpunk.FP;
    import net.flashpunk.Sfx;
+   import net.flashpunk.Entity;
    
-   public class MenuButton extends Text
-   {
-       
-      
+   public class MenuButton extends Entity
+   {      
       private var mouseOn:Boolean = false;
       
       private var callback:Function;
       
       private var sine:Number;
+
+      private var text:Text;
       
       public function MenuButton(str:String, x:int, y:int, callback:Function)
       {
-         super(str,x,y);
+         text = new Text(str, x, y);
+         super(x,y, text);
          this.callback = callback;
-         size = 16;
+         text.size = 16;
          this.sine = FP.choose(0,0.5,1,1.5,2,2.5,3,3.5) * Math.PI;
-         centerOO();
+         text.centerOO();
       }
       
       private function particleBurst() : void
@@ -45,14 +47,14 @@ package jam
                sfx.play();
             }
             this.particleBurst();
-            color = 16777215;
+            text.color = 16777215;
             this.sine = (this.sine + Math.PI / 32) % (Math.PI * 4);
-            angle = Math.sin(this.sine) * 6;
-            scaleX = scaleY = 1.3 + Math.sin(this.sine / 2) * 0.1;
+            text.angle = Math.sin(this.sine) * 6;
+            text.scaleX = text.scaleY = 1.3 + Math.sin(this.sine / 2) * 0.1;
             if(Input.mousePressed && this.callback != null)
             {
                this.callback(this);
-               if(text == "Cancel")
+               if(text.text == "Cancel")
                {
                   var sfxd:Sfx = new Sfx(Assets.SndDeselect);
                   sfxd.play();
@@ -68,9 +70,9 @@ package jam
          {
             this.mouseOn = false;
             this.sine = (this.sine + Math.PI / 64) % (Math.PI * 4);
-            color = 8947848;
-            angle = Math.sin(this.sine) * 2;
-            scaleX = scaleY = 1 + Math.sin(this.sine / 2) * 0.05;
+            text.color = 8947848;
+            text.angle = Math.sin(this.sine) * 2;
+            text.scaleX = text.scaleY = 1 + Math.sin(this.sine / 2) * 0.05;
          }
       }
    }
