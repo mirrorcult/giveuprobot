@@ -3,6 +3,9 @@ package jam
    import flash.geom.Point;
    import net.flashpunk.Entity;
    import net.flashpunk.tweens.misc.Alarm;
+   import net.flashpunk.Tween;
+   import net.flashpunk.FP;
+   import net.flashpunk.utils.Draw;
    
    public class Particle extends Entity
    {
@@ -36,7 +39,7 @@ package jam
       {
          visible = false;
          active = false;
-         this.alarm.stop();
+         this.alarm.active = false;;
          FP.world.remove(this);
          (FP.world as Level).particles.push(this);
       }
@@ -54,13 +57,15 @@ package jam
          this.y = y - size / 2;
          this.color = color;
          this.size = size;
-         var p:Point = FP.anglePoint(direction,speed);
+         var p:Point;
+         FP.angleXY(p,speed);
          this.hSpeed = p.x;
          this.vSpeed = p.y;
-         this.alarm.totalFrames = life;
+         this.alarm.reset(life);
+         this.alarm.active = false;
          if(delay > 0)
          {
-            this.alarmDelay.totalFrames = delay;
+            this.alarmDelay.reset(delay);
             this.alarmDelay.start();
          }
          else
@@ -79,7 +84,7 @@ package jam
       
       override public function render() : void
       {
-         drawRect(x,y,this.size,this.size,this.color,this.alarm.remainingFrames / (this.alarm.totalFrames / 8));
+         Draw.rect(x,y,this.size,this.size,this.color,this.alarm.remaining / (this.alarm.duration / 8));
       }
    }
 }

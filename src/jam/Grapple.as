@@ -5,11 +5,13 @@ package jam
    import net.flashpunk.Entity;
    import net.flashpunk.graphics.Spritemap;
    import net.flashpunk.utils.Input;
+   import net.flashpunk.FP;
+   import net.flashpunk.Sfx;
    
    public class Grapple extends Entity
    {
       
-      private static var SprGrapple:Spritemap = new Spritemap(ImgGrapple,4,4,false,false,2,2);
+      private var SprGrapple:Spritemap;
       
       private static const ImgGrapple:Class = Grapple_ImgGrapple;
        
@@ -69,11 +71,11 @@ package jam
          originX = 3;
          originY = 3;
          layer = -1000;
-         sprite = SprGrapple;
-         scaleX = 3;
-         scaleY = 3;
-         image = 0;
-         delay = 0;
+         graphic = SprGrapple = new Spritemap(ImgGrapple,4,4);
+         SprGrapple.scaleX = 3;
+         SprGrapple.scaleY = 3;
+         SprGrapple.frame = 0;
+         SprGrapple.rate = 0;
       }
       
       private function onHitWallSaw(b:Block = null) : void
@@ -104,7 +106,7 @@ package jam
          var j:int = 0;
          for(var i:int = this.radius; i > 0; i = i - 6)
          {
-            p = FP.anglePoint(this.direction,i);
+            FP.angleXY(p, this.direction,i);
             this.level.createParticles(1,x + p.x,y + p.y,1,color,2,1,0.2,0.1,0,180,6,2,j);
             j = j + 2;
          }
@@ -114,7 +116,7 @@ package jam
       
       override public function render() : void
       {
-         angle = FP.angle(this.player.x,this.player.y,x,y) - 90;
+         SprGrapple.angle = FP.angle(this.player.x,this.player.y,x,y) - 90;
          super.render();
       }
       
@@ -153,13 +155,14 @@ package jam
             }
             for(i = this.radius; i > 0; i = i - 6)
             {
-               p = FP.anglePoint(this.direction,i);
+               FP.angleXY(p, this.direction,i);
                this.level.createParticles(1,x + p.x,y + p.y,1,color,3,1,0.2,0.1,0,180,12,2);
             }
          }
          if(this.hitWall)
          {
-            FP.play(Assets.SndDrop);
+            var sfx:Sfx = new Sfx(Assets.SndDrop);
+            sfx.play();
          }
          FP.world.remove(this);
          this.player.removeGrapple();
@@ -181,7 +184,7 @@ package jam
          {
             if(this.goBack)
             {
-               p = FP.anglePoint(FP.angle(x,y,this.player.x,this.player.y),this.MOVE_SPEED * Math.SQRT2);
+               FP.angleXY(p, FP.angle(x,y,this.player.x,this.player.y),this.MOVE_SPEED * Math.SQRT2);
                x = x + p.x;
                y = y + p.y;
                if(collideWith(this.player,x,y))
@@ -200,7 +203,7 @@ package jam
             }
             if((obj = collide("solid",x,y)) != null && (obj.x >= 0 && obj.y >= 0 || obj is MovingPlat))
             {
-               image = 1;
+               SprGrapple.frame = 1;
                this.player.onGrappleHitWall();
                this.radius = FP.distance(x,y,this.player.x,this.player.y);
                this.direction = FP.angle(x,y,this.player.x,this.player.y);
@@ -209,15 +212,18 @@ package jam
                this.wall.grapple = this;
                if(obj is Saw)
                {
-                  FP.play(Assets.SndGrappleSaw);
+                  var sfx:Sfx = new Sfx(Assets.SndGrappleSaw);
+                  sfx.play();
                }
                else if(obj is ElectricBlock)
                {
-                  FP.play(Assets.SndGrappleElec);
+                  var sfxe:Sfx = new Sfx(Assets.SndGrappleElec);
+                  sfx.play();
                }
                else
                {
-                  FP.play(Assets.SndGrapple);
+                  var sfxg:Sfx = new Sfx(Assets.SndGrapple);
+                  sfx.play();
                }
                if(this.wall is Saw)
                {
@@ -232,8 +238,9 @@ package jam
             onSaw = false;
             if(this.wall is Saw)
             {
+               var sd:Saw = this.wall as Saw;
                onSaw = true;
-               this.momentum = this.SAW_MOMENTUM * (!!this.wall.flipX?1:-1);
+               this.momentum = this.SAW_MOMENTUM * (!sd.SprSaw.flipped ?1:-1);
                this.level.screenShake(4,1);
             }
             else
@@ -284,7 +291,7 @@ package jam
                this.radius = Math.min(this.MAX_RADIUS,this.radius + this.RADIUS_DOWN);
             }
             this.direction = this.direction + this.momentum;
-            p = FP.anglePoint(this.direction,this.radius);
+            FP.angleXY(p, this.direction,this.radius);
             mx = p.x + x - this.player.x;
             my = p.y + y - this.player.y;
             mx = Math.min(Math.max(mx,-this.MAX_PMOVE),this.MAX_PMOVE);

@@ -3,9 +3,8 @@ package jam
    import net.flashpunk.graphics.Spritemap;
    
    public class Saw extends Block
-   {
-      
-      private static const SprSaw:Spritemap = new Spritemap(ImgSaw,16,16,true);
+   {      
+      public var SprSaw:Spritemap;
       
       private static const ImgSaw:Class = Saw_ImgSaw;
        
@@ -13,9 +12,10 @@ package jam
       public function Saw(x:int, y:int, flip:Boolean)
       {
          super(x,y,16,16);
-         sprite = SprSaw;
-         delay = 3;
-         flipX = flip;
+         graphic = SprSaw = new Spritemap(ImgSaw,16,16);
+         SprSaw.rate = 3;
+         // TODO engine is this right for flip?
+         SprSaw.flipped = !flip;
          layer = 10;
       }
    }

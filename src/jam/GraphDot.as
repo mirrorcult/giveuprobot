@@ -1,6 +1,8 @@
 package jam
 {
    import net.flashpunk.Entity;
+   import net.flashpunk.FP;
+   import net.flashpunk.utils.Draw;
    
    public class GraphDot extends Entity
    {
@@ -20,7 +22,7 @@ package jam
       
       override public function render() : void
       {
-         drawRect(x - 1,y - 1,2,2,(FP.world as StatsMenu).color);
+         Draw.rect(x - 1,y - 1,2,2,(FP.world as StatsMenu).color);
       }
    }
 }

@@ -11,15 +11,15 @@ package jam
    public class Player extends Moveable
    {
       
-      private var ImgThrow:Class = Player_ImgThrow;
+      public static const ImgThrow:Class = Player_ImgThrow;
       
-      private var ImgThrowDown:Class = Player_ImgThrowDown;
+      public static const ImgThrowDown:Class = Player_ImgThrowDown;
       
       public var SprIdle:Spritemap;
       
       private var SprThrowUp:Spritemap;
       
-      private var ImgThrowUp:Class = Player_ImgThrowUp;
+      private static const ImgThrowUp:Class = Player_ImgThrowUp;
       
       private var SprThrow:Spritemap;
       
@@ -27,13 +27,13 @@ package jam
       
       private static const ImgFall:Class = Player_ImgFall;
       
-      private static const ImgIdle:Class = Player_ImgIdle;
+      public static const ImgIdle:Class = Player_ImgIdle;
       
       private var SprJump:Spritemap;
       
-      private static const ImgRun:Class = Player_ImgRun;
+      public static const ImgRun:Class = Player_ImgRun;
       
-      private static const ImgGrapple:Class = Player_ImgGrapple;
+      public static const ImgGrapple:Class = Player_ImgGrapple;
       
       private var SprGrappleAir:Spritemap;
       

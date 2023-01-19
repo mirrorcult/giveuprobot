@@ -2,6 +2,9 @@ package jam
 {
    import net.flashpunk.tweens.misc.Alarm;
    import net.flashpunk.utils.Input;
+   import net.flashpunk.Tween;
+   import net.flashpunk.utils.Draw;
+   import net.flashpunk.Sfx;
    
    public class StatsMenu extends MenuWorld
    {
@@ -37,7 +40,7 @@ package jam
       
       public function StatsMenu()
       {
-         this.alarmColors = new Alarm(5,this.onColor,Alarm.LOOPING);
+         this.alarmColors = new Alarm(5,this.onColor,Tween.LOOPING);
          super();
          this.color = this.colors[0];
          this.dots = new Vector.<GraphDot>();
@@ -58,7 +61,7 @@ package jam
          var u:uint = 0;
          var i:int = 0;
          this.text.text = name;
-         this.text.center();
+         this.text.centerOO();
          var biggest:int = 0;
          for each(u in graph)
          {
@@ -90,16 +93,16 @@ package jam
          addTween(this.alarmColors);
          this.text = new FlashingText("",160,16);
          this.text.size = 24;
-         this.text.center();
+         this.text.centerOO();
          add(this.text);
          this.inText = new FlashingText("",160,120);
          this.inText.size = 16;
          this.inText.layer = -100;
-         this.inText.center();
+         this.inText.centerOO();
          add(this.inText);
          this.hitText = new FlashingText("Z/A - Time    ENTER - Continue",160,232);
          this.hitText.size = 8;
-         this.hitText.center();
+         this.hitText.centerOO();
          add(this.hitText);
          for(var i:int = 0; i < Assets.TOTAL_LEVELS[Stats.saveData.mode]; i++)
          {
@@ -121,7 +124,7 @@ package jam
          {
             if(last)
             {
-               drawLine(last.x,last.y,g.x,g.y,this.color);
+               Draw.line(last.x,last.y,g.x,g.y,this.color);
             }
             last = g;
          }
@@ -132,8 +135,8 @@ package jam
          this.loadGraph("Time",Stats.saveData.time_stage);
          this.inText.text = Stats.saveData.formattedTime;
          this.hitText.text = "Z/A - Deaths    ENTER - Continue";
-         this.inText.center();
-         this.hitText.center();
+         this.inText.centerOO();
+         this.hitText.centerOO();
       }
       
       override public function update() : void
@@ -142,7 +145,8 @@ package jam
          if(Input.pressed("grapple"))
          {
             this.mode = !this.mode;
-            FP.play(Assets.SndSelect);
+            var sfxs:Sfx = new Sfx(Assets.SndSelect);
+            sfxs.play();
             if(this.mode)
             {
                this.gotoDeathsGraph();
@@ -157,7 +161,8 @@ package jam
             Stats.clear();
             Stats.setHardMode(true);
             this.canGo = false;
-            FP.play(Assets.SndWin);
+            var sfx:Sfx = new Sfx(Assets.SndWin);
+            sfx.play();
             add(new FuzzTransition(FuzzTransition.MENU,SubmitMenu));
          }
       }
@@ -174,8 +179,8 @@ package jam
             this.inText.text = "None!";
          }
          this.hitText.text = "Z/A - Time      ENTER - Continue";
-         this.inText.center();
-         this.hitText.center();
+         this.inText.centerOO();
+         this.hitText.centerOO();
       }
    }
 }

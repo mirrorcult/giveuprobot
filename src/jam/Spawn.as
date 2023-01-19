@@ -1,26 +1,31 @@
 package jam
 {
    import net.flashpunk.Entity;
+   import net.flashpunk.FP;
+   import net.flashpunk.graphics.Spritemap;
    
    public class Spawn extends Entity
    {
-       
+      public var spr:Spritemap;
       
       public function Spawn(x:int, y:int)
       {
          super();
          this.x = x;
          this.y = y;
-         sprite = Player.SprIdle;
-         delay = 0;
-         color = 16777215;
-         alpha = 0;
+         graphic = spr = new Spritemap(Player.ImgIdle, 10, 18);
+         spr.flipped = true;
+         spr.originX = 5;
+         spr.originY = 13;
+         spr.rate = 0;
+         spr.color = 16777215;
+         spr.alpha = 0;
       }
       
       override public function update() : void
       {
-         alpha = alpha + 0.05;
-         if(alpha >= 1 && (FP.world as Level).player)
+         spr.alpha = spr.alpha + 0.05;
+         if(spr.alpha >= 1 && (FP.world as Level).player)
          {
             FP.world.remove(this);
             (FP.world as Level).player.visible = true;
