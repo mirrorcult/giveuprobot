@@ -84,9 +84,9 @@ package jam
          }
       }
       
-      override public function init() : void
+      override public function begin() : void
       {
-         super.init();
+         super.begin();
          Assets.musicVolume = Assets.musicVolume / 2;
          this.score = (Stats.saveData.levelNum * (Stats.saveData.mode == 0?40000:90000) - Stats.saveData.time) * 10;
          this.score = Math.max(this.score,0);

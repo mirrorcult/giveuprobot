@@ -72,10 +72,10 @@ package jam
          this.toRemove = new Vector.<Entity>();
       }
       
-      override public function init() : void
+      override public function begin() : void
       {
          var a:Acrobat = null;
-         super.init();
+         super.begin();
          addTween(this.presAlarm);
          this.presents = new Text("Adult Swim Games Presents",160,40);
          this.presents.color = 6710886;
@@ -296,12 +296,7 @@ package jam
          this.toRemove.push(add(new MenuButton("Continue",160,180,this.loadGame)));
          this.toRemove.push(add(new MenuButton("Cancel",160,200,this.gotoMenuMain)));
       }
-      
-      private function moreGames(m:MenuButton = null) : void
-      {
-         Main.link("menu");
-      }
-      
+
       private function onPres() : void
       {
          if(!this.canGo)
@@ -412,7 +407,6 @@ package jam
          }
          this.toRemove.push(add(new MenuButton("Options",160,190,this.gotoMenuOptions)));
          this.toRemove.push(add(new MenuButton("Credits",160,210,this.gotoMenuCredits)));
-         this.toRemove.push(add(new MenuButton("More Games",160,230,this.moreGames)));
       }
       
       private function newGameHard(m:MenuButton = null) : void

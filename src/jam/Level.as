@@ -70,7 +70,7 @@ package jam
       // l or h
       public function getPrefix() : String
       {
-         return "";
+         return Stats.saveData.mode == 1 ? "H" : "L";
       }
 
       // GUR TRAINER STOP
@@ -290,9 +290,10 @@ package jam
          }
          add(new Block(-8,0,8,this.height));
          add(new Block(0,-8,this.width,8));
-         FP.camera.setBounds(0,0,this.width,this.height);
-         FP.camera.setOrigin(160,120);
-         FP.camera.moveTo(this.player.x,this.player.y);
+         //FP.camera.setBounds(0,0,this.width,this.height);
+         //FP.camera.setOrigin(160,120);
+         FP.camera.x = this.player.x;
+         FP.camera.y = this.player.y;
          getClass(Block, vec);
          for each(e in vec)
          {
@@ -310,76 +311,85 @@ package jam
          {
             this.levelText = new Text("Hard " + this.levelNum,20,20);
          }
-         this.levelText.layer = 100000;
          this.levelText.color = 3355443;
          this.levelText.size = 48;
          this.levelText.x = 20 + FP.camera.x;
          this.levelText.y = 20 + FP.camera.y;
-         add(this.levelText);
+         var lte:TextEntity = new TextEntity(this.levelText);
+         lte.layer = 100000;
+         add(lte);
          if(Assets.timer)
          {
             this.timer = new Text(Stats.saveData.formattedTime,20,60);
             this.timer.size = 24;
-            this.timer.layer = 100000;
             this.timer.color = 2236962;
             this.timer.x = 20 + FP.camera.x;
             this.timer.y = 60 + FP.camera.y;
-            add(this.timer);
+            var ltte:TextEntity = new TextEntity(this.timer);
+            ltte.layer = 100000;
+            add(ltte);
          }
          if(Stats.saveData.mode == 0)
          {
             if(this.levelNum == 1)
             {
                t = new Text("LEFT / RIGHT to move\nX or S or UP to jump",32,146);
-               t.layer = 100000;
                t.color = 3355443;
                t.size = 16;
-               add(t);
+               var t1:TextEntity = new TextEntity(t);
+               t1.layer = 100000;
+               add(t1);
                t = new Text("when jumping, hold it\nfor maximum height",324,128);
-               t.layer = 100000;
                t.color = 3355443;
                t.size = 16;
-               add(t);
+               var t2:TextEntity = new TextEntity(t);
+               t2.layer = 100000;
+               add(t2);
                t = new Text("Z or A to grapple, then\nUP / DOWN to adjust\nand LEFT / RIGHT to swing",704,96);
-               t.layer = 100000;
                t.color = 3355443;
                t.size = 16;
-               add(t);
+               var t3:TextEntity = new TextEntity(t);
+               t3.layer = 100000;
+               add(t3);
             }
             else if(this.levelNum == 2)
             {
                t = new Text("REMEMBER:\nZ or A to grapple, then\nUP / DOWN to adjust\nand LEFT / RIGHT to swing",32,116);
-               t.layer = 100000;
                t.color = 3355443;
                t.size = 16;
-               add(t);
+               var t4:TextEntity = new TextEntity(t);
+               t4.layer = 100000;
+               add(t4);
             }
             else if(this.levelNum == 3)
             {
                t = new Text("RECALL:\nZ or A to grapple, then\nUP / DOWN to adjust\nand LEFT / RIGHT to swing",56,128);
-               t.layer = 100000;
                t.color = 3355443;
                t.size = 16;
-               add(t);
+               var t5:TextEntity = new TextEntity(t);
+               t5.layer = 100000;
+               add(t5);
             }
             else if(this.levelNum == 4)
             {
                t = new Text("SERIOUSLY:\nZ or A to grapple, then\nUP / DOWN to adjust\nand LEFT / RIGHT to swing",24,116);
-               t.layer = 100000;
                t.color = 3355443;
                t.size = 16;
-               add(t);
+               var t6:TextEntity = new TextEntity(t);
+               t6.layer = 100000;
+               add(t6);
             }
             else if(this.levelNum == 49)
             {
                t = new Text("Go for distance!",128,160);
-               t.layer = 100000;
                t.color = 3355443;
                t.size = 16;
-               add(t);
+               var t7:TextEntity = new TextEntity(t);
+               t7.layer = 100000;
+               add(t7);
             }
          }
-         add(this.bg = new Backdrop(ImgBG));
+         add(new BGEntity(this.bg = new Backdrop(ImgBG)));
          add(new EndLine());
          if(Assets.fuzz != null)
          {

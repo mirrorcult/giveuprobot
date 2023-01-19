@@ -91,9 +91,9 @@ package jam
          this.drawn++;
       }
       
-      override public function init() : void
+      override public function begin() : void
       {
-         super.init();
+         super.begin();
          for(var i:int = 0; i < 6; i++)
          {
             this.balls.push(add(new DiscoBall(80 + 80 * (i % 3),96 + Math.floor(i / 3) * 80)) as DiscoBall);

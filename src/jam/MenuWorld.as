@@ -16,10 +16,10 @@ package jam
          super();
       }
       
-      override public function init() : void
+      override public function begin() : void
       {
          this.particles = new Vector.<MenuParticle>();
-         add(this.bg = new Backdrop(Level.ImgBG));
+         add(new BGEntity(this.bg = new Backdrop(Level.ImgBG)));
          if(Assets.fuzz != null)
          {
             add(Assets.fuzz);

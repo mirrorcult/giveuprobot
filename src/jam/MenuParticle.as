@@ -1,5 +1,7 @@
 package jam
 {
+   import net.flashpunk.FP;
+
    public class MenuParticle extends Particle
    {
        

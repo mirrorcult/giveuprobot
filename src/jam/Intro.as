@@ -371,10 +371,10 @@ package jam
          this.alarm.start();
       }
       
-      override public function init() : void
+      override public function begin() : void
       {
          var t:Text = null;
-         super.init();
+         super.begin();
          Assets.setMusic(new Sfx(Assets.MusIntro));
          //Engine.flash = false;
          addTween(this.alarmUnderscore);

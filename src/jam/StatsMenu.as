@@ -86,10 +86,10 @@ package jam
          }
       }
       
-      override public function init() : void
+      override public function begin() : void
       {
          var g:GraphDot = null;
-         super.init();
+         super.begin();
          addTween(this.alarmColors);
          this.text = new FlashingText("",160,16);
          this.text.size = 24;
