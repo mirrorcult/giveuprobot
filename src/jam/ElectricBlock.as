@@ -6,7 +6,7 @@ package jam
    public class ElectricBlock extends Block
    {
       
-      private static const ImgElec:Class = ElectricBlock_ImgElec;
+      private static const ImgElec:Class = Library.ElectricBlock_ImgElec;
       
       private var SprElec:Spritemap;
        

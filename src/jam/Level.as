@@ -14,7 +14,7 @@ package jam
    public class Level extends World
    {
       
-      public static const ImgBG:Class = Level_ImgBG;
+      public static const ImgBG:Class = Library.Level_ImgBG;
        
       
       private var bg:Backdrop;

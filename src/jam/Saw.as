@@ -6,7 +6,7 @@ package jam
    {      
       public var SprSaw:Spritemap;
       
-      private static const ImgSaw:Class = Saw_ImgSaw;
+      private static const ImgSaw:Class = Library.Saw_ImgSaw;
        
       
       public function Saw(x:int, y:int, flip:Boolean)

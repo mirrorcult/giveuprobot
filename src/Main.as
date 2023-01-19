@@ -7,12 +7,14 @@ package
    import net.flashpunk.Engine;
    import net.flashpunk.utils.Input;
    import net.flashpunk.utils.Key;
+   import net.flashpunk.FP;
    
    public class Main extends Engine
    {
       public function Main()
       {
-         super(320,240,60,2);
+         super(320,240,60, true);
+         FP.screen.scale = 2;
 
          // TODO MIRR go to MainMenu thru init
       }
@@ -26,6 +28,7 @@ package
          Input.define("jump",Key.X,Key.UP,Key.S);
          Input.define("grapple",Key.Z,Key.A);
          Input.define("skip",Key.ENTER);
+         FP.world = new MainMenu();
       }
    }
 }

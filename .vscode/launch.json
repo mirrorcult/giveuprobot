@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "swf",
+        "request": "launch",
+        "name": "Launch SWF",
+        "preLaunchTask": "ActionScript: compile debug - asconfig.json",
+        "profile": "desktop",
+        "program": "${workspaceRoot}/application.xml",
+        "rootDirectory": "${workspaceRoot}/bin",
+        "runtimeExecutable": "K:/FlexSDK/bin/adl64.exe"
+      }
+    ]
+  }

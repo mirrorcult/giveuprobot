@@ -245,12 +245,9 @@ package
 		
 		[Embed(source = "assets/GiveUpRobot.swf", symbol = "Player_ImgThrowUp")]
 		static public var Player_ImgThrowUp:Class;
-		
-		[Embed(source = "assets/GiveUpRobot.swf", symbol = "Preloader_ImgBG")]
-		static public var Preloader_ImgBG:Class;
-		
-		[Embed(source = "assets/GiveUpRobot.swf", symbol = "Preloader_ImgLoading")]
-		static public var Preloader_ImgLoading:Class;
+
+		[Embed(source = "assets/GiveUpRobot.swf", symbol = "Level_ImgBG")]
+		static public var Level_ImgBG:Class;
 		
 		[Embed(source = "assets/GiveUpRobot.swf", symbol = "Saw_ImgSaw")]
 		static public var Saw_ImgSaw:Class;

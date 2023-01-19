@@ -11,33 +11,33 @@ package jam
    public class Player extends Moveable
    {
       
-      public static const ImgThrow:Class = Player_ImgThrow;
+      public static const ImgThrow:Class = Library.Player_ImgThrow;
       
-      public static const ImgThrowDown:Class = Player_ImgThrowDown;
+      public static const ImgThrowDown:Class = Library.Player_ImgThrowDown;
       
       public var SprIdle:Spritemap;
       
       private var SprThrowUp:Spritemap;
       
-      private static const ImgThrowUp:Class = Player_ImgThrowUp;
+      private static const ImgThrowUp:Class = Library.Player_ImgThrowUp;
       
       private var SprThrow:Spritemap;
       
       private var SprThrowDown:Spritemap;
       
-      private static const ImgFall:Class = Player_ImgFall;
+      private static const ImgFall:Class = Library.Player_ImgFall;
       
-      public static const ImgIdle:Class = Player_ImgIdle;
+      public static const ImgIdle:Class = Library.Player_ImgIdle;
       
       private var SprJump:Spritemap;
       
-      public static const ImgRun:Class = Player_ImgRun;
+      public static const ImgRun:Class = Library.Player_ImgRun;
       
-      public static const ImgGrapple:Class = Player_ImgGrapple;
+      public static const ImgGrapple:Class = Library.Player_ImgGrapple;
       
       private var SprGrappleAir:Spritemap;
       
-      private static const ImgJump:Class = Player_ImgJump;
+      private static const ImgJump:Class = Library.Player_ImgJump;
       
       private var SprRun:Spritemap;
       
@@ -45,7 +45,7 @@ package jam
       
       private var SprGrapple:Spritemap;
       
-      private static const ImgGrappleAir:Class = Player_ImgGrappleAir;
+      private static const ImgGrappleAir:Class = Library.Player_ImgGrappleAir;
       
       private var varJ:Boolean = false;
       

@@ -13,7 +13,7 @@ package jam
       
       private var SprGrapple:Spritemap;
       
-      private static const ImgGrapple:Class = Grapple_ImgGrapple;
+      private static const ImgGrapple:Class = Library.Grapple_ImgGrapple;
        
       
       private var changedRad:int = 0;

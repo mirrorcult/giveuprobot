@@ -13,11 +13,11 @@ package jam
    public class MainMenu extends MenuWorld
    {
       
-      private static const ImgMMG:Class = MainMenu_ImgMMG;
+      private static const ImgMMG:Class = Library.MainMenu_ImgMMG;
       
       private var SprMMG:Spritemap;
       
-      private static const ImgFP:Class = MainMenu_ImgFP;
+      private static const ImgFP:Class = Library.MainMenu_ImgFP;
       
       private var SprFP:Spritemap;
        

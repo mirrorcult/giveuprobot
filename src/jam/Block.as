@@ -9,7 +9,7 @@ package jam
    {
       private var SprTiles:Spritemap;
       
-      private static const ImgTiles:Class = Block_ImgTiles;
+      private static const ImgTiles:Class = Library.Block_ImgTiles;
       
       private static const Colors:Array = [4294901760,4294967040,4278255360,4278255615,4278190335,4294902015];
        
