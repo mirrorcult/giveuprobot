@@ -3,6 +3,8 @@ package jam
    import net.flashpunk.graphics.Text;
    import net.flashpunk.tweens.misc.Alarm;
    import net.flashpunk.utils.Input;
+   import net.flashpunk.Tween;
+   import net.flashpunk.FP;
    
    public class EndMenu extends MenuWorld
    {
@@ -25,6 +27,7 @@ package jam
          this.alarm = new Alarm(120,this.cont,Tween.PERSIST);
          super();
          addTween(this.alarm);
+         // TODO engine handle music properly like gur2 does
          FP.musicStop();
          this.rank = 1;
          for(var i:int = 0; i < this.REQS.length; i++)
@@ -53,9 +56,10 @@ package jam
          var t:Text = null;
          if(this.drawn == 0)
          {
+            // TODO engine how tf do we handle text
             t = new FlashingText("Good Job ROBOT!!",160,24);
             t.size = 36;
-            t.center();
+            t.centerOO();
             add(t);
             this.alarm.start();
          }
@@ -71,8 +75,7 @@ package jam
          {
             this.balls[this.drawn - 2].start();
             FP.play(Assets["SndRank" + (this.drawn - 1)]);
-            this.alarm.totalFrames = 60;
-            this.alarm.start();
+            this.alarm.reset(60);
          }
          else
          {

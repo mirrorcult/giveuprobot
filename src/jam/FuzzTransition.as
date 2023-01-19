@@ -5,6 +5,7 @@ package jam
    import net.flashpunk.graphics.Text;
    import net.flashpunk.Entity;
    import net.flashpunk.FP;
+   import net.flashpunk.graphics.Image;
    
    public class FuzzTransition extends Entity
    {
@@ -18,15 +19,14 @@ package jam
       public static const LOAD:uint = 3;
       
       public static const RESTART:uint = 1;
-       
-      
-      private var bitmapData:BitmapData;
-      
+             
       private var lvl:uint;
       
       private var goto1:Class;
       
       private var colorTransform:ColorTransform;
+
+      private var img:Image;
       
       private var mode:uint;
       
@@ -44,8 +44,9 @@ package jam
          this.goto1 = goto1;
          this.long = long;
          this.lvl = lvl;
-         this.bitmapData = new BitmapData(320,240);
+         graphic = img = new Image(new BitmapData(320,240));
          this.colorTransform = new ColorTransform(1,1,1,0);
+         img.tint = this.colorTransform;
          layer = -500000000;
          if(mode == GOTO_NEXT)
          {
@@ -53,7 +54,7 @@ package jam
             t.size = 36;
             t.angle = 290 + Math.random() * 140;
             t.color = 16777215;
-            t.layer = -500000001; // TODO text entity?
+            //t.layer = -500000001; // TODO engine text entity?
             t.centerOO();
             FP.world.add(t);
          }
@@ -117,9 +118,10 @@ package jam
       
       override public function render() : void
       {
-         this.bitmapData.noise(Math.random() * 100);
-         this.colorTransform.alphaMultiplier = this.alpha;
-         FP.screen.draw(this.bitmapData,null,this.colorTransform);
+         img.source.noise(Math.random() * 100);
+         img.tint.alphaMultiplier = this.alpha;
+         img.updateBuffer();
+         super.render();
       }
    }
 }

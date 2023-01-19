@@ -2,11 +2,12 @@ package jam
 {
    import net.flashpunk.tweens.misc.Alarm;
    import net.flashpunk.Entity;
+   import net.flashpunk.Tween;
+   import net.flashpunk.FP;
+   import net.flashpunk.Sfx;
    
    public class FallingPlat extends Block
    {
-       
-      
       private var started:Boolean = false;
       
       private var falling:Boolean = false;
@@ -43,7 +44,8 @@ package jam
                {
                   this.finished = true;
                   this.falling = false;
-                  FP.play(Assets.SndLand);
+                  var sfxl:Sfx = new Sfx(Assets.SndLand);
+                  sfxl.play();
                   (FP.world as Level).screenShake(10);
                   if(y > (FP.world as Level).height)
                   {
@@ -66,14 +68,15 @@ package jam
             {
                if(!grapple && !collideWith(player,x,y - 1))
                {
-                  this.alarm.stop();
+                  this.alarm.active = false;
                   this.fall();
                }
             }
          }
          else if(grapple || collideWith(player,x,y - 1))
          {
-            FP.play(Assets.SndShake);
+            var sfx:Sfx = new Sfx(Assets.SndShake);
+            sfx.play();
             (FP.world as Level).screenShake(10,1);
             particleBurst();
             this.started = true;
@@ -97,7 +100,8 @@ package jam
       
       private function fall() : void
       {
-         FP.play(Assets.SndFall);
+         var sfx:Sfx = new Sfx(Assets.SndFall);
+         sfx.play();
          this.falling = true;
       }
       
