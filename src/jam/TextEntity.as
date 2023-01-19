@@ -7,9 +7,10 @@ package jam
    // this doesn't really feel right. but thats ok
    public class TextEntity extends Entity
    {
-      public function TextEntity(text:Text)
+      public function TextEntity(text:Text, layer:int=0)
       {
          super(0,0,text);
+         this.layer = layer;
       }
    }
 }

@@ -14,7 +14,7 @@ package jam
       
       private var sine:Number;
 
-      private var text:Text;
+      public var text:Text;
       
       public function MenuButton(str:String, x:int, y:int, callback:Function)
       {

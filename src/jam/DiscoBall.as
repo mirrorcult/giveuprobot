@@ -7,7 +7,7 @@ package jam
    public class DiscoBall extends Entity
    {
       
-      private static const ImgBall:Class = DiscoBall_ImgBall;
+      public static const ImgBall:Class = DiscoBall_ImgBall;
       
       public var SprBall:Spritemap;
       

@@ -15,7 +15,6 @@ package net.flashpunk.debug
 	import net.flashpunk.utils.Draw;
 	import net.flashpunk.utils.Input;
 	import net.flashpunk.utils.Key;
-	import mx.controls.graphics.Text;
 	import flash.text.TextFieldType;
 	
 	public class TASConsole extends Sprite
