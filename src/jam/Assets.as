@@ -368,7 +368,51 @@ package jam
       private static const VcGoodLuck2:Class = Library.Assets_VcGoodLuck2;
       
       private static var lastGiveUp:int = -1;
-       
+
+      private static var music:Sfx;
+            
+      public static function setMusic(to:Sfx = null, loop:Boolean = true) : void
+      {
+         if(music == to || FP.volume == 0)
+         {
+            return;
+         }
+         if(music)
+         {
+            music.stop();
+         }
+         music = to;
+         if(music != null)
+         {
+            if(loop)
+            {
+               music.loop();
+            }
+            else
+            {
+               music.complete = setMusic;
+               music.play();
+            }
+         }
+      }
+
+      public static function set musicVolume(n:Number):void
+      {
+         if (music)
+         {
+            music.volume = n;
+         }
+      }
+
+      public static function get musicVolume():Number
+      {
+         if (music)
+         {
+            return music.volume;
+         }
+
+         return 0;
+      }
       
       public function Assets()
       {

@@ -2,9 +2,10 @@ package jam
 {
    import net.flashpunk.graphics.Text;
    import net.flashpunk.tweens.misc.Alarm;
-   import net.flashpunk.core.Engine;
    import net.flashpunk.utils.Input;
    import net.flashpunk.Tween;
+   import net.flashpunk.FP;
+   import net.flashpunk.Sfx;
    
    public class Intro extends MenuWorld
    {
@@ -45,7 +46,9 @@ package jam
          {
             return;
          }
-         FP.play(Assets.SndMouse,0.5);
+         var sfx:Sfx = new Sfx(Assets.SndMouse);
+         sfx.volume = 0.5;
+         sfx.play();
          for(var i:int = 0; i < this.textCur.length; i++)
          {
             if(this.textCur.charAt(i) != this.textGoto.charAt(i))
@@ -66,8 +69,8 @@ package jam
          if(this.canGo && Input.pressed("skip"))
          {
             this.canGo = false;
-            FP.musicPlay(Assets.MusGame);
-            Engine.flash = true;
+            Assets.setMusic(new Sfx(Assets.MusGame));
+            //Engine.flash = true;
             add(new FuzzTransition(FuzzTransition.NEW,null,true));
          }
       }
@@ -82,7 +85,9 @@ package jam
          else if(this.mode == 1)
          {
             this.textGoto = "Wake up Robot";
-            FP.play(Assets.VcIntro1,Assets.VCVOL);
+            var sfx1:Sfx = new Sfx(Assets.VcIntro1);
+            sfx1.volume = Assets.VCVOL;
+            sfx1.play();            
             this.alarm.reset(200);
          }
          else if(this.mode == 2)
@@ -93,7 +98,9 @@ package jam
          else if(this.mode == 3)
          {
             this.textGoto = "WAKE UP ROBOT!!1!";
-            FP.play(Assets.VcIntro2,Assets.VCVOL);
+            var sfx22:Sfx = new Sfx(Assets.VcIntro2);
+            sfx22.volume = Assets.VCVOL;
+            sfx22.play();
             this.alarm.reset(113);
          }
          else if(this.mode == 4)
@@ -109,7 +116,9 @@ package jam
          else if(this.mode == 6)
          {
             this.textGoto = "WAKE UP ROBOT!!!!\n\nIt is time to";
-            FP.play(Assets.VcIntro3,Assets.VCVOL);
+            var sfx32:Sfx = new Sfx(Assets.VcIntro6);
+            sfx32.volume = Assets.VCVOL;
+            sfx32.play();
             this.alarm.reset(90);
          }
          else if(this.mode == 7)
@@ -155,7 +164,9 @@ package jam
          else if(this.mode == 15)
          {
             this.textGoto = "WAKE UP ROBOT!!!!\n\nIt is time to...\nBegin Te";
-            FP.play(Assets.VcIntro4,Assets.VCVOL);
+            var sfx4:Sfx = new Sfx(Assets.VcIntro4);
+            sfx4.volume = Assets.VCVOL;
+            sfx4.play();
             this.alarm.reset(60);
          }
          else if(this.mode == 16)
@@ -182,7 +193,7 @@ package jam
          {
             if(this.canGo)
             {
-               FP.musicStop();
+               Assets.setMusic();
             }
             this.alarm.reset(120);
          }
@@ -249,7 +260,9 @@ package jam
          else if(this.mode == 33)
          {
             this.textGoto = "WAKE UP ROBOT!!!!\n\nIt is time to...\n.";
-            FP.play(Assets.VcIntro3,Assets.VCVOL);
+            var sfx3:Sfx = new Sfx(Assets.VcIntro3);
+            sfx3.volume = Assets.VCVOL;
+            sfx3.play();
             this.alarm.reset(40);
          }
          else if(this.mode == 34)
@@ -270,11 +283,13 @@ package jam
          else if(this.mode == 37)
          {
             this.textGoto = "WAKE UP ROBOT!!!!\n\nIt is time to...\n...\nDAAANNCEEee";
-            FP.play(Assets.VcIntro5,Assets.VCVOL);
+            var sfx5:Sfx = new Sfx(Assets.VcIntro5);
+            sfx5.volume = Assets.VCVOL;
+            sfx5.play();
             if(Stats.saveData.mode == 0)
             {
-               FP.musicPlay(Assets.MusGame);
-               Engine.flash = true;
+               Assets.setMusic(new Sfx(Assets.MusGame));
+               //Engine.flash = true;
             }
             this.alarm.reset(80);
          }
@@ -340,9 +355,12 @@ package jam
          else if(this.mode == 49)
          {
             this.textGoto = "WAKE UP ROBOT!!!!\n\nIt is time to...\n...\nDAAANNCEEeeeeeoooOOOooo\noooooo\n\n...\nHARD!";
-            FP.play(Assets.VcIntro6,Assets.VCVOL);
-            FP.musicPlay(Assets.MusGame);
-            Engine.flash = true;
+            var sfx:Sfx = new Sfx(Assets.VcIntro6);
+            sfx.volume = Assets.VCVOL;
+            sfx.play();
+            Assets.setMusic(new Sfx(Assets.MusGame));
+            // TODO engine what the fuck is this?
+            // Engine.flash = true; 
             this.alarm.reset(90);
          }
          else if(this.mode == 50)
@@ -357,20 +375,20 @@ package jam
       {
          var t:Text = null;
          super.init();
-         FP.musicPlay(Assets.MusIntro);
-         Engine.flash = false;
+         Assets.setMusic(new Sfx(Assets.MusIntro));
+         //Engine.flash = false;
          addTween(this.alarmUnderscore);
          addTween(this.alarmText);
          addTween(this.alarm);
          this.text = new Text("",16,16);
          this.text.size = 16;
          this.text.color = 16777215;
-         add(this.text);
+         add(new TextEntity(this.text));
          t = new Text("ENTER - skip",160,232);
          t.size = 8;
          t.color = 16777215;
          t.centerOO();
-         add(t);
+         add(new TextEntity(t));
       }
    }
 }

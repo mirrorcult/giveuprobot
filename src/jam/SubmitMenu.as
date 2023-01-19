@@ -1,9 +1,11 @@
 package jam
 {
    import net.flashpunk.graphics.Text;
-   import net.flashpunk.Textplus;
    import net.flashpunk.tweens.misc.Alarm;
    import net.flashpunk.utils.Input;
+   import net.flashpunk.Tween;
+   import net.flashpunk.FP;
+   import net.flashpunk.Sfx;
    
    public class SubmitMenu extends MenuWorld
    {
@@ -23,11 +25,11 @@ package jam
       
       private var canGo:Boolean = false;
       
-      private var timeText:Textplus;
+      private var timeText:Text;
       
       private const TEXT_BIGSEP:uint = 24;
       
-      private var scoreText:Textplus;
+      private var scoreText:Text;
       
       private const WAIT_SHORT:uint = 40;
       
@@ -41,7 +43,7 @@ package jam
       
       private var menuCont:MenuButton;
       
-      private var levelsText:Textplus;
+      private var levelsText:Text;
       
       public function SubmitMenu()
       {
@@ -85,7 +87,7 @@ package jam
       override public function init() : void
       {
          super.init();
-         FP.musicVolume = FP.musicVolume / 2;
+         Assets.musicVolume = Assets.musicVolume / 2;
          this.score = (Stats.saveData.levelNum * (Stats.saveData.mode == 0?40000:90000) - Stats.saveData.time) * 10;
          this.score = Math.max(this.score,0);
          Stats.saveData.levelNum++;
@@ -98,15 +100,17 @@ package jam
          var t:Text = new Text("Scoring Time!",160,20);
          t.color = 16777215;
          t.size = 16;
-         t.center();
-         add(t);
+         t.centerOO();
+         add(new TextEntity(t));
       }
       
       private function onCount() : void
       {
          if(this.scoreDraw < this.score)
          {
-            FP.play(Assets.SndWin);
+            new Sfx(Assets.SndWin).play();
+            var sfx:Sfx = new Sfx(Assets.SndWin);
+            new Sfx(Assets.SndWin).play();
             this.particleBurst(this.partsAt,20);
             this.scoreDraw = this.scoreDraw + Math.max(1007,Math.ceil((this.score - this.scoreDraw) / 6));
             this.scoreDraw = Math.min(this.scoreDraw,this.score);
@@ -123,16 +127,15 @@ package jam
                this.scoreText.text = this.digits(this.scoreDraw);
             }
             this.scoreText.scaleX = this.scoreText.scaleY = 1.3 + Math.random() * 0.4;
-            this.scoreText.center();
+            this.scoreText.centerOO();
             if(this.scoreDraw == this.score)
             {
-               removeAlarm(this.aScore);
+               removeTween(this.aScore);
                this.alarm.start();
             }
             else
             {
-               this.aScore.totalFrames = 5;
-               this.aScore.start();
+               this.aScore.reset(5);
             }
          }
       }
@@ -169,24 +172,22 @@ package jam
             }
             t.color = 16777215;
             t.size = 8;
-            t.center();
-            add(t);
-            this.alarm.totalFrames = this.WAIT_SHORT;
-            this.alarm.start();
+            t.centerOO();
+            add(new TextEntity(t));
+            this.alarm.reset(this.WAIT_SHORT);
             this.draw = this.draw + this.TEXT_SMALLSEP;
          }
          else if(this.num == 1)
          {
-            FP.play(Assets.SndRank6);
+            new Sfx(Assets.SndRank6).play();
             this.particleBurst(this.draw);
-            this.timeText = new Textplus(Stats.saveData.formattedTime,160,this.draw);
+            this.timeText = new Text(Stats.saveData.formattedTime,160,this.draw);
             this.timeText.color = 16777215;
             this.timeText.size = 24;
-            this.timeText.center();
+            this.timeText.centerOO();
             this.timeText.scaleX = this.timeText.scaleY = 1.5;
-            add(this.timeText);
-            this.alarm.totalFrames = this.WAIT_LONG;
-            this.alarm.start();
+            add(new TextEntity(this.timeText));
+            this.alarm.reset(this.WAIT_LONG);
             this.draw = this.draw + this.TEXT_BIGSEP;
          }
          else if(this.num == 2)
@@ -201,24 +202,22 @@ package jam
             }
             t.color = 16777215;
             t.size = 8;
-            t.center();
-            add(t);
-            this.alarm.totalFrames = this.WAIT_SHORT;
-            this.alarm.start();
+            t.centerOO();
+            add(new TextEntity(t));
+            this.alarm.reset(this.WAIT_SHORT);
             this.draw = this.draw + this.TEXT_SMALLSEP;
          }
          else if(this.num == 3)
          {
-            FP.play(Assets.SndRank6);
+            new Sfx(Assets.SndRank6).play();
             this.particleBurst(this.draw);
-            this.levelsText = new Textplus(Stats.saveData.levelNum - 1 + " Levels",160,this.draw);
+            this.levelsText = new Text(Stats.saveData.levelNum - 1 + " Levels",160,this.draw);
             this.levelsText.color = 16777215;
             this.levelsText.size = 24;
-            this.levelsText.center();
+            this.levelsText.centerOO();
             this.levelsText.scaleX = this.levelsText.scaleY = 1.5;
-            add(this.levelsText);
-            this.alarm.totalFrames = this.WAIT_LONG;
-            this.alarm.start();
+            add(new TextEntity(this.levelsText));
+            this.alarm.reset(this.WAIT_LONG);
             this.draw = this.draw + this.TEXT_BIGSEP;
          }
          else if(this.num == 4)
@@ -226,33 +225,30 @@ package jam
             t = new Text("Which gives you a score of...",160,this.draw);
             t.color = 16777215;
             t.size = 8;
-            t.center();
-            add(t);
-            this.alarm.totalFrames = this.WAIT_SHORT;
-            this.alarm.start();
+            t.centerOO();
+            add(new TextEntity(t));
+            this.alarm.reset(this.WAIT_SHORT);
             this.draw = this.draw + this.TEXT_SMALLSEP;
          }
          else if(this.num == 5)
          {
-            FP.play(Assets.SndRank6);
+            new Sfx(Assets.SndRank6).play();
             this.particleBurst(this.draw);
             this.partsAt = this.draw;
-            this.scoreText = new Textplus("0",160,this.draw);
+            this.scoreText = new Text("0",160,this.draw);
             this.scoreText.color = 16777215;
             this.scoreText.size = 24;
-            this.scoreText.center();
+            this.scoreText.centerOO();
             this.scoreText.scaleX = this.scoreText.scaleY = 1.5;
-            add(this.scoreText);
+            add(new TextEntity(this.scoreText));
             this.aScore.start();
             this.draw = this.draw + 48;
          }
          else if(this.num == 6)
          {
-            FP.play(Assets.SndWin);
+            new Sfx(Assets.SndWin).play();
             this.particleBurst(165);
             this.particleBurst(195);
-            m = new MenuButton("More Games",160,this.draw,this.moreGames);
-            add(m);
             if(Stats.saveData.levelNum >= Assets.TOTAL_LEVELS[Stats.saveData.mode])
             {
                this.menuCont = new MenuButton("Done",160,this.draw + 32,this.cont);
@@ -268,7 +264,7 @@ package jam
       
       private function cont(m:MenuButton) : void
       {
-         FP.play(Assets.SndWin);
+         new Sfx(Assets.SndWin).play();
          if(Stats.saveData.levelNum >= Assets.TOTAL_LEVELS[Stats.saveData.mode])
          {
             Assets.playBye();
@@ -278,14 +274,9 @@ package jam
          {
             add(new FuzzTransition(FuzzTransition.NEW,null,false,Stats.saveData.levelNum));
          }
-         FP.musicVolume = FP.musicVolume * 2;
+         Assets.musicVolume = Assets.musicVolume * 2;
          remove(this.menuCont);
          this.menuCont = null;
-      }
-      
-      private function moreGames(m:MenuButton = null) : void
-      {
-         Main.link("scoring");
       }
    }
 }

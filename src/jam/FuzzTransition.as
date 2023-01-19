@@ -54,9 +54,10 @@ package jam
             t.size = 36;
             t.angle = 290 + Math.random() * 140;
             t.color = 16777215;
-            //t.layer = -500000001; // TODO engine text entity?
             t.centerOO();
-            FP.world.add(t);
+            var tent:TextEntity = new TextEntity(t);
+            tent.layer = -500000001;
+            FP.world.add(tent);
          }
       }
       

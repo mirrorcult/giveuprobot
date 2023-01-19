@@ -13,7 +13,7 @@ package jam
       {
          visible = false;
          active = false;
-         alarm.stop();
+         alarm.active = false;
          FP.world.remove(this);
          (FP.world as MenuWorld).particles.push(this);
       }

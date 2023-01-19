@@ -17,8 +17,8 @@ package jam
          this.alarm = new Alarm(5,this.change,Tween.LOOPING);
          super(str,x,y);
          color = this.colors[0];
-         // TODO engine ???????
-         addTween(this.alarm);
+         // TODO engine ??????? is this ok
+         this.alarm.start();
       }
       
       private function change() : void

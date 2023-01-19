@@ -1,9 +1,11 @@
 package jam
 {
-   import net.flashpunk.Textplus;
    import net.flashpunk.utils.Input;
+   import net.flashpunk.graphics.Text;
+   import net.flashpunk.FP;
+   import net.flashpunk.Sfx;
    
-   public class MenuButton extends Textplus
+   public class MenuButton extends Text
    {
        
       
@@ -19,7 +21,7 @@ package jam
          this.callback = callback;
          size = 16;
          this.sine = FP.choose(0,0.5,1,1.5,2,2.5,3,3.5) * Math.PI;
-         center();
+         centerOO();
       }
       
       private function particleBurst() : void
@@ -39,7 +41,8 @@ package jam
             if(!this.mouseOn)
             {
                this.mouseOn = true;
-               FP.play(Assets.SndMouse);
+               var sfx:Sfx = new Sfx(Assets.SndMouse);
+               sfx.play();
             }
             this.particleBurst();
             color = 16777215;
@@ -51,11 +54,13 @@ package jam
                this.callback(this);
                if(text == "Cancel")
                {
-                  FP.play(Assets.SndDeselect);
+                  var sfxd:Sfx = new Sfx(Assets.SndDeselect);
+                  sfxd.play();
                }
                else
                {
-                  FP.play(Assets.SndSelect);
+                  var sfsx:Sfx = new Sfx(Assets.SndSelect);
+                  sfsx.play();
                }
             }
          }

@@ -5,6 +5,7 @@ package jam
    import net.flashpunk.utils.Input;
    import net.flashpunk.Tween;
    import net.flashpunk.FP;
+   import net.flashpunk.Sfx;
    
    public class EndMenu extends MenuWorld
    {
@@ -28,7 +29,7 @@ package jam
          super();
          addTween(this.alarm);
          // TODO engine handle music properly like gur2 does
-         FP.musicStop();
+         Assets.setMusic();
          this.rank = 1;
          for(var i:int = 0; i < this.REQS.length; i++)
          {
@@ -45,7 +46,8 @@ package jam
          super.update();
          if(this.canGo && Input.pressed("skip"))
          {
-            FP.play(Assets.SndWin);
+            var sfx:Sfx = new Sfx(Assets.SndWin());
+            sfx.play();
             add(new FuzzTransition(FuzzTransition.MENU,StatsMenu));
             this.canGo = false;
          }
@@ -60,29 +62,30 @@ package jam
             t = new FlashingText("Good Job ROBOT!!",160,24);
             t.size = 36;
             t.centerOO();
-            add(t);
+            add(new TextEntity(t));
             this.alarm.start();
          }
          else if(this.drawn == 1)
          {
             t = new FlashingText("Your rank is...",160,48);
             t.size = 16;
-            t.center();
-            add(t);
+            t.centerOO();
+            add(new TextEntity(t));
             this.alarm.start();
          }
          else if(this.drawn < this.rank + 2)
          {
             this.balls[this.drawn - 2].start();
-            FP.play(Assets["SndRank" + (this.drawn - 1)]);
+            var sfx:Sfx = new Sfx(Assets["SndRank" + (this.drawn - 1)]);
+            sfx.play();
             this.alarm.reset(60);
          }
          else
          {
             t = new FlashingText("Press ENTER!",160,224);
             t.size = 16;
-            t.center();
-            add(t);
+            t.centerOO();
+            add(new TextEntity(t));
             this.canGo = true;
          }
          this.drawn++;
