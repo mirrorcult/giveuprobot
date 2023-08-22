@@ -72,7 +72,11 @@ package jam
       
       private function clearMenu() : void
       {
-         removeList(this.toRemove);
+         var i:int = 0;
+         for(i = 0; i < this.toRemove.length; i++)
+         {
+            remove(this.toRemove[i]);
+         }
          this.toRemove = new Vector.<Entity>();
       }
       
