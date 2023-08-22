@@ -35,6 +35,7 @@ package
 
          FP.console.enable();
          FP.console.visible = false;
+         FP.console.watch("hSpeed", "vSpeed", "direction", "momentum", "radius", "active", "timeLeft", "coinsLeft", "endY", "startY", "counter", "grappleHSpeed", "grappleVSpeed");
       }
 
       override public function setStageProperties():void
