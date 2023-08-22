@@ -28,7 +28,7 @@ package jam
       
       private var sss:Number = 0;
       
-      private var title:FlashingText;
+      private var title:Text;
       
       private var canGo:Boolean = true;
       
@@ -92,7 +92,7 @@ package jam
          add(t);
          t = new Title(36, "Give Up, ROBOT",160,64, true, 0xFFFFFF, true, true)
          t.layer = -1000;
-         this.title = t.text as FlashingText;
+         this.title = t.text;
          add(t);
          a = new Entity();
          var spr:Spritemap = new Spritemap(DiscoBall.ImgBall,64,64);

@@ -18,10 +18,10 @@ package jam
       
       public function MenuButton(str:String, x:int, y:int, callback:Function)
       {
+         Text.size = 16;
          text = new Text(str, 0, 0);
          super(x,y,text);
          this.callback = callback;
-         text.size = 16;
          this.sine = FP.choose(0,0.5,1,1.5,2,2.5,3,3.5) * Math.PI;
          text.centerOO();
       }
@@ -55,7 +55,8 @@ package jam
             if(Input.mousePressed && this.callback != null)
             {
                this.callback(this);
-               if(text.text == "Cancel")
+               /* NOTE: OPINIONATED ADDITION */
+               if(text.text == "Cancel" || text.text == "Back")
                {
                   var sfxd:Sfx = new Sfx(Assets.SndDeselect);
                   sfxd.play();

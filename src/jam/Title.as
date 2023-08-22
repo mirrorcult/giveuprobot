@@ -15,11 +15,11 @@ package jam
       {
          super(x,y);
          this.active = active;
+         Text.size = size;
          if (flashing)
             graphic = this.text = new FlashingText(str);
          else
             graphic = this.text = new Text(str);
-         this.text.size = size;
          this.text.color = color;
          this.text.centerOO();
          this.sine = Math.random() * Math.PI * 2;
