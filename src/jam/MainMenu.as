@@ -41,9 +41,9 @@ package jam
       public function MainMenu()
       {
          SprMMG = new Spritemap(ImgMMG,90,32);
+         SprMMG.set(45, 16);
          SprFP = new Spritemap(ImgFP,89,31);
-         SprFP.originX = 45;
-         SprFP.originY = 15;
+         SprFP.set(45, 15);
          this.presAlarm = new Alarm(120,this.onPres,Tween.PERSIST);
          super();
       }

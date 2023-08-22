@@ -99,6 +99,15 @@
 				}
 			}
 		}
+
+		/* Helper for behavior in a bunch of gur spritemaps */
+		public function set(oX:int, oY:int):void
+		{
+			x = -oX;
+			y = -oY;
+			originX = x;
+			originY = y;
+		}
 		
 		/**
 		 * Add an Animation.
