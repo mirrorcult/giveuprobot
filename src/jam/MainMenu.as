@@ -87,11 +87,11 @@ package jam
          super.begin();
          addTween(this.presAlarm);
          t = new Title(16, "Adult Swim Games Presents",160,40, true, 6710886, true, true)
-         t.layer = 1050;
+         t.layer = -1050;
          this.presents = t.text;
          add(t);
          t = new Title(36, "Give Up, ROBOT",160,64, true, 0xFFFFFF, true, true)
-         t.layer = 1000;
+         t.layer = -1000;
          this.title = t.text as FlashingText;
          add(t);
          a = new Entity();
@@ -101,9 +101,9 @@ package jam
          spr.scaleY = 4;
          spr.alpha = 0.1;
          spr.rate = 6;
-         a.layer = 1000;
-         a.x = 160;
-         a.y = 120;
+         a.layer = -1000;
+         a.x = 32;
+         a.y = -8;
          add(a);
          var b:Entity = new Entity();
          b.graphic = SprMMG;
