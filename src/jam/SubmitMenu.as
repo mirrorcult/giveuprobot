@@ -97,11 +97,7 @@ package jam
          }
          addTween(this.alarm);
          addTween(this.aScore,false);
-         var t:Text = new Text("Scoring Time!",160,20);
-         t.color = 0xFFFFFF;
-         t.size = 16;
-         t.centerOO();
-         add(new TextEntity(t));
+         add(new Title(16, "Scoring Time", 160, 20));
       }
       
       private function onCount() : void
@@ -158,22 +154,21 @@ package jam
       
       private function onAlarm() : void
       {
-         var t:Text = null;
+         var t:String = null;
+         var title:Title = null;
          var m:MenuButton = null;
          if(this.num == 0)
          {
             if(Stats.saveData.levelNum >= Assets.TOTAL_LEVELS[Stats.saveData.mode])
             {
-               t = new Text("Your Total Time Was...",160,this.draw);
+               t ="Your Total Time Was..."
             }
             else
             {
-               t = new Text("Your Total Time So Far Is...",160,this.draw);
+               t = "Your Total Time So Far Is...";
             }
-            t.color = 0xFFFFFF;
-            t.size = 8;
-            t.centerOO();
-            add(new TextEntity(t));
+
+            add(new Title(8, t, 160,this.draw));
             this.alarm.reset(this.WAIT_SHORT);
             this.draw = this.draw + this.TEXT_SMALLSEP;
          }
@@ -181,12 +176,10 @@ package jam
          {
             new Sfx(Assets.SndRank6).play();
             this.particleBurst(this.draw);
-            this.timeText = new Text(Stats.saveData.formattedTime,160,this.draw);
-            this.timeText.color = 0xFFFFFF;
-            this.timeText.size = 24;
-            this.timeText.centerOO();
+            title = new Title(24, Stats.saveData.formattedTime, 160, this.draw);
+            this.timeText = title.text;
             this.timeText.scaleX = this.timeText.scaleY = 1.5;
-            add(new TextEntity(this.timeText));
+            add(title);
             this.alarm.reset(this.WAIT_LONG);
             this.draw = this.draw + this.TEXT_BIGSEP;
          }
@@ -194,16 +187,13 @@ package jam
          {
             if(Stats.saveData.levelNum >= Assets.TOTAL_LEVELS[Stats.saveData.mode])
             {
-               t = new Text("And You Completed...",160,this.draw);
+               t = "And You Completed...";
             }
             else
             {
-               t = new Text("And You\'ve Completed...",160,this.draw);
+               t = "And You\'ve Completed...";
             }
-            t.color = 0xFFFFFF;
-            t.size = 8;
-            t.centerOO();
-            add(new TextEntity(t));
+            add(new Title(8, t, 160,this.draw));
             this.alarm.reset(this.WAIT_SHORT);
             this.draw = this.draw + this.TEXT_SMALLSEP;
          }
@@ -211,22 +201,16 @@ package jam
          {
             new Sfx(Assets.SndRank6).play();
             this.particleBurst(this.draw);
-            this.levelsText = new Text(Stats.saveData.levelNum - 1 + " Levels",160,this.draw);
-            this.levelsText.color = 0xFFFFFF;
-            this.levelsText.size = 24;
-            this.levelsText.centerOO();
+            title = new Title(24, Stats.saveData.levelNum - 1 + " Levels",160,this.draw);
+            this.levelsText = title.text;
             this.levelsText.scaleX = this.levelsText.scaleY = 1.5;
-            add(new TextEntity(this.levelsText));
+            add(title);
             this.alarm.reset(this.WAIT_LONG);
             this.draw = this.draw + this.TEXT_BIGSEP;
          }
          else if(this.num == 4)
          {
-            t = new Text("Which gives you a score of...",160,this.draw);
-            t.color = 0xFFFFFF;
-            t.size = 8;
-            t.centerOO();
-            add(new TextEntity(t));
+            add(new Title(8, "Which gives you a score of...",160,this.draw));
             this.alarm.reset(this.WAIT_SHORT);
             this.draw = this.draw + this.TEXT_SMALLSEP;
          }
@@ -235,12 +219,12 @@ package jam
             new Sfx(Assets.SndRank6).play();
             this.particleBurst(this.draw);
             this.partsAt = this.draw;
-            this.scoreText = new Text("0",160,this.draw);
-            this.scoreText.color = 0xFFFFFF;
-            this.scoreText.size = 24;
-            this.scoreText.centerOO();
+
+            title = new Title(24, "0", 160, this.draw);
+            this.scoreText = title.text;
             this.scoreText.scaleX = this.scoreText.scaleY = 1.5;
-            add(new TextEntity(this.scoreText));
+            add(title);
+            
             this.aScore.start();
             this.draw = this.draw + 48;
          }

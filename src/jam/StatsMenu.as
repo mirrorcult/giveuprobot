@@ -89,22 +89,15 @@ package jam
       override public function begin() : void
       {
          var g:GraphDot = null;
+
+         // forgive my sins
+         var t:Title = null;
          super.begin();
          addTween(this.alarmColors);
-         this.text = new FlashingText("",160,16);
-         this.text.size = 24;
-         this.text.centerOO();
-         add(new TextEntity(this.text));
-         this.inText = new FlashingText("",160,120);
-         this.inText.size = 16;
-         this.inText.centerOO();
-         var intexte:TextEntity = new TextEntity(this.inText);
-         intexte.layer = -100;
-         add(intexte);
-         this.hitText = new FlashingText("Z/A - Time    ENTER - Continue",160,232);
-         this.hitText.size = 8;
-         this.hitText.centerOO();
-         add(new TextEntity(this.hitText));
+         this.text = (add(new Title(24, "", 160, 16, true, 0xFFFFFF, true)) as Title).text as FlashingText;
+         this.inText = (add(t = new Title(16, "", 160, 120, true, 0xFFFFFF, true)) as Title).text as FlashingText;
+         t.layer = -100;
+         this.hitText = (add(new Title(8, "Z/A - Time    ENTER - Continue",160,232, true, 0xFFFFFF, true)) as Title).text as FlashingText;
          for(var i:int = 0; i < Assets.TOTAL_LEVELS[Stats.saveData.mode]; i++)
          {
             g = new GraphDot();

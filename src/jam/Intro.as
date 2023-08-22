@@ -373,22 +373,16 @@ package jam
       
       override public function begin() : void
       {
-         var t:Text = null;
          super.begin();
          Assets.setMusic(new Sfx(Assets.MusIntro));
          Engine.flash = false;
          addTween(this.alarmUnderscore);
          addTween(this.alarmText);
          addTween(this.alarm);
-         this.text = new Text("",16,16);
-         this.text.size = 16;
-         this.text.color = 0xFFFFFF;
-         add(new TextEntity(this.text));
-         t = new Text("ENTER - skip",160,232);
-         t.size = 8;
-         t.color = 0xFFFFFF;
-         t.centerOO();
-         add(new TextEntity(t));
+         var t:Title = new Title(16, "", 16, 16);
+         add(t);
+         this.text = t.text;
+         add(new Title(8, "ENTER - skip", 160, 232));
       }
    }
 }

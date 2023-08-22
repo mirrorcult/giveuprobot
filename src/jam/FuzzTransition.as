@@ -50,12 +50,8 @@ package jam
          layer = -500000000;
          if(mode == GOTO_NEXT)
          {
-            t = new Text("Give Up, ROBOT",FP.camera.x + 160,FP.camera.y + 120);
-            t.size = 36;
-            t.angle = 290 + Math.random() * 140;
-            t.color = 0xFFFFFF;
-            t.centerOO();
-            var tent:TextEntity = new TextEntity(t);
+            var tent:Title = new Title(36, "Give Up, ROBOT",FP.camera.x + 160,FP.camera.y + 120);
+            tent.text.angle = 290 + Math.random() * 140;
             tent.layer = -500000001;
             FP.world.add(tent);
          }

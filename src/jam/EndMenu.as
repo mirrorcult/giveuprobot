@@ -58,19 +58,12 @@ package jam
          var t:Text = null;
          if(this.drawn == 0)
          {
-            // TODO engine how tf do we handle text
-            t = new FlashingText("Good Job ROBOT!!",160,24);
-            t.size = 36;
-            t.centerOO();
-            add(new TextEntity(t));
+            add(new Title(36, "Good Job ROBOT!!", 160, 24, true, 0xFFFFFF, true));
             this.alarm.start();
          }
          else if(this.drawn == 1)
          {
-            t = new FlashingText("Your rank is...",160,48);
-            t.size = 16;
-            t.centerOO();
-            add(new TextEntity(t));
+            add(new Title(16, "Your rank is...", 160, 48, true, 0xFFFFFF, true));
             this.alarm.start();
          }
          else if(this.drawn < this.rank + 2)
@@ -82,10 +75,7 @@ package jam
          }
          else
          {
-            t = new FlashingText("Press ENTER!",160,224);
-            t.size = 16;
-            t.centerOO();
-            add(new TextEntity(t));
+            add(new Title(16, "Press Enter!", 160, 224, true, 0xFFFFFF, true));
             this.canGo = true;
          }
          this.drawn++;

@@ -79,20 +79,20 @@ package jam
       override public function begin() : void
       {
          var a:Entity = null;
+         var t:Title = null;
          super.begin();
          addTween(this.presAlarm);
-         this.presents = new Text("Adult Swim Games Presents",160,40);
-         this.presents.color = 6710886;
-         this.presents.size = 16;
-         this.presents.centerOO();
-         add(new TextEntity(this.presents, 1050));
-         this.title = new FlashingText("Give Up, ROBOT",160,64);
-         this.title.size = 36;
-         this.title.centerOO();
-         add(new TextEntity(this.title, 1000));
+         t = new Title(16, "Adult Swim Games Presents",160,40, true, 6710886, true, true)
+         t.layer = 1050;
+         this.presents = t.text;
+         add(t);
+         t = new Title(36, "Give Up, ROBOT",160,64, true, 0xFFFFFF, true, true)
+         t.layer = 1000;
+         this.title = t.text as FlashingText;
+         add(t);
          a = new Entity();
          var spr:Spritemap = new Spritemap(DiscoBall.ImgBall,64,64);
-         a.graphic = new Spritemap(DiscoBall.ImgBall,64,64);
+         a.graphic = spr;
          spr.scaleX = 4;
          spr.scaleY = 4;
          spr.alpha = 0.1;
@@ -162,71 +162,19 @@ package jam
          this.clearMenu();
          this.title.visible = false;
          this.presents.visible = false;
-         t = new Text("graphics, audio,",160,22);
-         t.size = 8;
-         t.color = 0xFFFFFF;
-         t.centerOO();
-         this.toRemove.push(add(new TextEntity(t)));
-         t = new Text("programming and design by",160,28);
-         t.size = 8;
-         t.color = 0xFFFFFF;
-         t.centerOO();
-         this.toRemove.push(add(new TextEntity(t)));
-         t = new Text("Matt Thorson",160,40);
-         t.size = 16;
-         t.color = 0xFFFFFF;
-         t.centerOO();
-         this.toRemove.push(add(new TextEntity(t)));
-         t = new Text("with additional graphics,",160,60);
-         t.size = 8;
-         t.color = 0xFFFFFF;
-         t.centerOO();
-         this.toRemove.push(add(new TextEntity(t)));
-         t = new Text("design and testing by",160,66);
-         t.size = 8;
-         t.color = 0xFFFFFF;
-         t.centerOO();
-         this.toRemove.push(add(new TextEntity(t)));
-         t = new Text("Coriander Dickinson",160,78);
-         t.size = 16;
-         t.color = 0xFFFFFF;
-         t.centerOO();
-         this.toRemove.push(add(new TextEntity(t)));
-         t = new Text("and voices by",160,98);
-         t.size = 8;
-         t.color = 0xFFFFFF;
-         t.centerOO();
-         this.toRemove.push(add(new TextEntity(t)));
-         t = new Text("Rachel Williamson",160,110);
-         t.size = 16;
-         t.color = 0xFFFFFF;
-         t.centerOO();
-         this.toRemove.push(add(new TextEntity(t)));
-         t = new Text("based on a prototype",160,130);
-         t.size = 8;
-         t.color = 0xFFFFFF;
-         t.centerOO();
-         this.toRemove.push(add(new TextEntity(t)));
-         t = new Text("developed at",160,138);
-         t.size = 8;
-         t.color = 0xFFFFFF;
-         t.centerOO();
-         this.toRemove.push(add(new TextEntity(t)));
-         t = new Text("Edmonton Game Jam 2010",160,150);
-         t.size = 16;
-         t.color = 0xFFFFFF;
-         t.centerOO();
-         this.toRemove.push(add(new TextEntity(t)));
-         t = new Text("presented by",160,170);
-         t.size = 8;
-         t.color = 0xFFFFFF;
-         t.centerOO();
-         this.toRemove.push(add(new TextEntity(t)));
-         t = new Text("Adult Swim Games",160,182);
-         t.size = 16;
-         t.color = 0xFFFFFF;
-         t.centerOO();
-         this.toRemove.push(add(new TextEntity(t)));
+         this.toRemove.push(add(new Title(8, "graphics, audio,",160,22)));
+         this.toRemove.push(add(new Title(8, "programming and design by",160,28)));
+         this.toRemove.push(add(new Title(16, "Matt Thorson",160,40)));
+         this.toRemove.push(add(new Title(8, "with additional graphics,",160,60)));
+         this.toRemove.push(add(new Title(8, "design and testing by",160,66)));
+         this.toRemove.push(add(new Title(16, "Coriander Dickinson",160,78)));
+         this.toRemove.push(add(new Title(8, "and voices by",160,98)));
+         this.toRemove.push(add(new Title(16, "Rachel Williamson",160,110)));
+         this.toRemove.push(add(new Title(8, "based on a prototype",160,130)));
+         this.toRemove.push(add(new Title(8, "developed at",160,138)));
+         this.toRemove.push(add(new Title(16, "Edmonton Game Jam 2010",160,150)));
+         this.toRemove.push(add(new Title(8, "presented by",160,170)));
+         this.toRemove.push(add(new Title(16, "Adult Swim Games",160,182)));
          this.toRemove.push(add(new MenuButton("Back",160,220,this.gotoMenuMain)));
       }
       
@@ -274,28 +222,11 @@ package jam
       
       private function gotoMenuContinue(m:MenuButton = null) : void
       {
-         var t:Text = null;
          this.clearMenu();
-         t = new Text(Assets.NAMES[Stats.saveData.mode] + " Mode",160,120);
-         t.size = 16;
-         t.color = 0xFFFFFF;
-         t.centerOO();
-         this.toRemove.push(add(new TextEntity(t)));
-         t = new Text("Level " + Stats.saveData.levelNum,160,135);
-         t.size = 8;
-         t.color = 0xFFFFFF;
-         t.centerOO();
-         this.toRemove.push(add(new TextEntity(t)));
-         t = new Text(Stats.saveData.deaths + " Deaths",160,145);
-         t.size = 8;
-         t.color = 0xFFFFFF;
-         t.centerOO();
-         this.toRemove.push(add(new TextEntity(t)));
-         t = new Text(Stats.saveData.formattedTime,160,155);
-         t.size = 8;
-         t.color = 0xFFFFFF;
-         t.centerOO();
-         this.toRemove.push(add(new TextEntity(t)));
+         this.toRemove.push(add(new Title(16, Assets.NAMES[Stats.saveData.mode] + " Mode",160,120)));
+         this.toRemove.push(add(new Title(8, "Level " + Stats.saveData.levelNum,160,135)));
+         this.toRemove.push(add(new Title(8, Stats.saveData.deaths + " Deaths",160,145)));
+         this.toRemove.push(add(new Title(8, Stats.saveData.formattedTime,160,155)));
          this.toRemove.push(add(new MenuButton("Continue",160,180,this.loadGame)));
          this.toRemove.push(add(new MenuButton("Cancel",160,200,this.gotoMenuMain)));
       }
@@ -389,11 +320,7 @@ package jam
          }
          else
          {
-            t = new Text("New HARD Game",160,140);
-            t.color = 3355443;
-            t.size = 16;
-            t.centerOO();
-            this.toRemove.push(add(new TextEntity(t)));
+            this.toRemove.push(add(new Title(16, "New HARD Game",160,140, true, 3355443)));
          }
          if(Stats.exists())
          {
@@ -401,11 +328,7 @@ package jam
          }
          else
          {
-            t = new Text("Continue",160,160);
-            t.color = 3355443;
-            t.size = 16;
-            t.centerOO();
-            this.toRemove.push(add(new TextEntity(t)));
+            this.toRemove.push(add(new Title(16, "Continue",160,160, true, 3355443)));
          }
          this.toRemove.push(add(new MenuButton("Options",160,190,this.gotoMenuOptions)));
          this.toRemove.push(add(new MenuButton("Credits",160,210,this.gotoMenuCredits)));
@@ -428,16 +351,8 @@ package jam
       private function gotoMenuConfirm(m:MenuButton = null) : void
       {
          this.clearMenu();
-         var t:Text = new Text("Are You Sure?",160,120);
-         t.size = 24;
-         t.color = 0xFFFFFF;
-         t.centerOO();
-         this.toRemove.push(add(new TextEntity(t)));
-         t = new Text("Current savefile will be deleted!",160,140);
-         t.size = 16;
-         t.color = 0xFFFFFF;
-         t.centerOO();
-         this.toRemove.push(add(new TextEntity(t)));
+         this.toRemove.push(add(new Title(24, "Are You Sure?",160,120)));
+         this.toRemove.push(add(new Title(16, "Current savefile will be deleted!",160,140)));
          this.toRemove.push(add(new MenuButton("Do It!",160,180,this.newGame)));
          this.toRemove.push(add(new MenuButton("Cancel",160,200,this.gotoMenuMain)));
       }

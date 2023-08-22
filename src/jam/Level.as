@@ -239,7 +239,6 @@ package jam
          var vec:Vector.<Entity> = null;
          var e:Block = null;
          var yy:int = 0;
-         var t:Text = null;
          Stats.saveData.levelNum = this.levelNum;
          Stats.save();
          this.width = this.xml.width[0];
@@ -301,29 +300,23 @@ package jam
                (e as FallingPlat).getEndY();
             }
          }
+         var ts:String = null;
          if(Stats.saveData.mode == 0)
          {
-            this.levelText = new Text("Level " + this.levelNum,20,20);
+            ts = "Level " + this.levelNum;
          }
          else
          {
-            this.levelText = new Text("Hard " + this.levelNum,20,20);
+            ts = "Hard " + this.levelNum;
          }
-         this.levelText.color = 3355443;
-         this.levelText.size = 48;
-         this.levelText.x = 20 + FP.camera.x;
-         this.levelText.y = 20 + FP.camera.y;
-         var lte:TextEntity = new TextEntity(this.levelText);
+         var lte:Title = new Title(48, ts ,20 + FP.camera.x,20 + FP.camera.y, true, 3355443);
+         this.levelText = lte.text;
          lte.layer = 100000;
          add(lte);
          if(Assets.timer)
          {
-            this.timer = new Text(Stats.saveData.formattedTime,20,60);
-            this.timer.size = 24;
-            this.timer.color = 2236962;
-            this.timer.x = 20 + FP.camera.x;
-            this.timer.y = 60 + FP.camera.y;
-            var ltte:TextEntity = new TextEntity(this.timer);
+            var ltte:Title = new Title(24, Stats.saveData.formattedTime,20 + FP.camera.x, 60 + FP.camera.y, true, 2236962);
+            this.timer = ltte.text;
             ltte.layer = 100000;
             add(ltte);
          }
@@ -331,58 +324,37 @@ package jam
          {
             if(this.levelNum == 1)
             {
-               t = new Text("LEFT / RIGHT to move\nX or S or UP to jump",32,146);
-               t.color = 3355443;
-               t.size = 16;
-               var t1:TextEntity = new TextEntity(t);
+               var t1:Title = new Title(16, "LEFT / RIGHT to move\nX or S or UP to jump",32,146, true, 3355443);
                t1.layer = 100000;
                add(t1);
-               t = new Text("when jumping, hold it\nfor maximum height",324,128);
-               t.color = 3355443;
-               t.size = 16;
-               var t2:TextEntity = new TextEntity(t);
+               var t2:Title = new Title(16,"when jumping, hold it\nfor maximum height",324,128, true, 3355443);
                t2.layer = 100000;
                add(t2);
-               t = new Text("Z or A to grapple, then\nUP / DOWN to adjust\nand LEFT / RIGHT to swing",704,96);
-               t.color = 3355443;
-               t.size = 16;
-               var t3:TextEntity = new TextEntity(t);
+               var t3:Title = new Title(16, "Z or A to grapple, then\nUP / DOWN to adjust\nand LEFT / RIGHT to swing",704,96, true, 3355443);
                t3.layer = 100000;
                add(t3);
             }
             else if(this.levelNum == 2)
             {
-               t = new Text("REMEMBER:\nZ or A to grapple, then\nUP / DOWN to adjust\nand LEFT / RIGHT to swing",32,116);
-               t.color = 3355443;
-               t.size = 16;
-               var t4:TextEntity = new TextEntity(t);
+               var t4:Title = new Title(16,"REMEMBER:\nZ or A to grapple, then\nUP / DOWN to adjust\nand LEFT / RIGHT to swing",32,116, true, 3355443);
                t4.layer = 100000;
                add(t4);
             }
             else if(this.levelNum == 3)
             {
-               t = new Text("RECALL:\nZ or A to grapple, then\nUP / DOWN to adjust\nand LEFT / RIGHT to swing",56,128);
-               t.color = 3355443;
-               t.size = 16;
-               var t5:TextEntity = new TextEntity(t);
+               var t5:Title = new Title(16, "RECALL:\nZ or A to grapple, then\nUP / DOWN to adjust\nand LEFT / RIGHT to swing",56,128, true, 3355443);
                t5.layer = 100000;
                add(t5);
             }
             else if(this.levelNum == 4)
             {
-               t = new Text("SERIOUSLY:\nZ or A to grapple, then\nUP / DOWN to adjust\nand LEFT / RIGHT to swing",24,116);
-               t.color = 3355443;
-               t.size = 16;
-               var t6:TextEntity = new TextEntity(t);
+               var t6:Title = new Title(16, "SERIOUSLY:\nZ or A to grapple, then\nUP / DOWN to adjust\nand LEFT / RIGHT to swing",24,116, true, 3355443);
                t6.layer = 100000;
                add(t6);
             }
             else if(this.levelNum == 49)
             {
-               t = new Text("Go for distance!",128,160);
-               t.color = 3355443;
-               t.size = 16;
-               var t7:TextEntity = new TextEntity(t);
+               var t7:Title = new Title(16, "Go for distance!",128,160, true, 3355443);
                t7.layer = 100000;
                add(t7);
             }
