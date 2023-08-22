@@ -18,8 +18,8 @@ package jam
       
       public function MenuButton(str:String, x:int, y:int, callback:Function)
       {
-         text = new Text(str, x, y);
-         super(0,0, text);
+         text = new Text(str, 0, 0);
+         super(x,y,text);
          this.callback = callback;
          text.size = 16;
          this.sine = FP.choose(0,0.5,1,1.5,2,2.5,3,3.5) * Math.PI;
@@ -32,15 +32,14 @@ package jam
          for(var i:int = 0; i < 2; i++)
          {
             ax = FP.choose(-60,-45,-30,-15,0,15,30,45,60);
-            (FP.world as MenuWorld).createParticles(1,text.x + ax,text.y,10,0xFFFFFF,2,1,1.5,0.5,0,180,12,4);
+            (FP.world as MenuWorld).createParticles(1,x + ax,y,10,0xFFFFFF,2,1,1.5,0.5,0,180,12,4);
          }
       }
       
       override public function update() : void
       {
          super.update();
-         var x:Number = 5;
-         if(Input.mouseX > text.x - 60 && Input.mouseX < text.x + 60 && Input.mouseY > text.y - 9 && Input.mouseY < text.y + 9)
+         if(Input.mouseX > x - 60 && Input.mouseX < x + 60 && Input.mouseY > y - 9 && Input.mouseY < y + 9)
          {
             if(!this.mouseOn)
             {
