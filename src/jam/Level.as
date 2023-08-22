@@ -324,37 +324,53 @@ package jam
          {
             if(this.levelNum == 1)
             {
+               // these offsets are needed bc... idk, i think gur1 spawned text by the top left but gur2 did it by the middle?
+               // idk why the mainmenu ones worked then! but
                var t1:Title = new Title(16, "LEFT / RIGHT to move\nX or S or UP to jump",32,146, true, 3355443);
+               t1.x += t1.text.width / 2;
+               t1.y += t1.text.height / 2;
                t1.layer = 100000;
                add(t1);
                var t2:Title = new Title(16,"when jumping, hold it\nfor maximum height",324,128, true, 3355443);
+               t2.x += t2.text.width / 2;
+               t2.y += t2.text.height / 2;
                t2.layer = 100000;
                add(t2);
                var t3:Title = new Title(16, "Z or A to grapple, then\nUP / DOWN to adjust\nand LEFT / RIGHT to swing",704,96, true, 3355443);
+               t3.x += t3.text.width / 2;
+               t3.y += t3.text.height / 2;
                t3.layer = 100000;
                add(t3);
             }
-            else if(this.levelNum == 2)
+            else if(this.levelNum == 2) 
             {
                var t4:Title = new Title(16,"REMEMBER:\nZ or A to grapple, then\nUP / DOWN to adjust\nand LEFT / RIGHT to swing",32,116, true, 3355443);
+               t4.x += t4.text.width / 2;
+               t4.y += t4.text.height / 2;
                t4.layer = 100000;
                add(t4);
             }
             else if(this.levelNum == 3)
             {
                var t5:Title = new Title(16, "RECALL:\nZ or A to grapple, then\nUP / DOWN to adjust\nand LEFT / RIGHT to swing",56,128, true, 3355443);
+               t5.x += t5.text.width / 2;
+               t5.y += t5.text.height / 2;
                t5.layer = 100000;
                add(t5);
             }
             else if(this.levelNum == 4)
             {
                var t6:Title = new Title(16, "SERIOUSLY:\nZ or A to grapple, then\nUP / DOWN to adjust\nand LEFT / RIGHT to swing",24,116, true, 3355443);
+               t6.x += t6.text.width / 2;
+               t6.y += t6.text.height / 2;
                t6.layer = 100000;
                add(t6);
             }
             else if(this.levelNum == 49)
             {
                var t7:Title = new Title(16, "Go for distance!",128,160, true, 3355443);
+               t7.x += t7.text.width / 2;
+               t7.y += t7.text.height / 2;
                t7.layer = 100000;
                add(t7);
             }
