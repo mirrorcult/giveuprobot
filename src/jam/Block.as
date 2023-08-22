@@ -76,17 +76,15 @@ package jam
       {
          // TODO ENGINE making this actually use tilemaps might speed up the game a lot. that would be nice.
          var j:int = 0;
-         super.render();
          var ox:int = graphic.x;
          var oy:int = graphic.y;
-         for(var i:int = 0; i < width; i = i + 8)
+         for(var i:int = x; i < x + width; i = i + 8)
          {
-            for(j = 0; j < height; j = j + 8)
+            for(j = y; j < y + height; j = j + 8)
             {
-               // TODO ENGINE see if this works.
-               SprTiles.frame = Math.floor((i + j * 3) / 8);
-               graphic.x = ox + i;
-               graphic.y = oy + j;
+               SprTiles.frame = Math.floor((i + j * 3) / 8) % SprTiles.frameCount;
+               graphic.x = ox + i - x;
+               graphic.y = oy + j - y;
                super.render();
             }
          }
