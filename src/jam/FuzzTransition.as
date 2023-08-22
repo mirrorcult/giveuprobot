@@ -53,7 +53,7 @@ package jam
             t = new Text("Give Up, ROBOT",FP.camera.x + 160,FP.camera.y + 120);
             t.size = 36;
             t.angle = 290 + Math.random() * 140;
-            t.color = 16777215;
+            t.color = 0xFFFFFF;
             t.centerOO();
             var tent:TextEntity = new TextEntity(t);
             tent.layer = -500000001;

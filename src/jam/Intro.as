@@ -382,11 +382,11 @@ package jam
          addTween(this.alarm);
          this.text = new Text("",16,16);
          this.text.size = 16;
-         this.text.color = 16777215;
+         this.text.color = 0xFFFFFF;
          add(new TextEntity(this.text));
          t = new Text("ENTER - skip",160,232);
          t.size = 8;
-         t.color = 16777215;
+         t.color = 0xFFFFFF;
          t.centerOO();
          add(new TextEntity(t));
       }

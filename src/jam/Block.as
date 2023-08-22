@@ -149,13 +149,13 @@ package jam
          var j:int = 0;
          for(j = x; j < x + width; j = j + 4)
          {
-            (FP.world as Level).createParticles(1,j,y + height,2,16777215,3,1,0.7,0.2,270,20,10,3);
-            (FP.world as Level).createParticles(1,j,y,2,16777215,3,1,0.7,0.2,90,20,10,3);
+            (FP.world as Level).createParticles(1,j,y + height,2,0xFFFFFF,3,1,0.7,0.2,270,20,10,3);
+            (FP.world as Level).createParticles(1,j,y,2,0xFFFFFF,3,1,0.7,0.2,90,20,10,3);
          }
          for(j = y; j < y + height; j = j + 4)
          {
-            (FP.world as Level).createParticles(1,x + width,j,2,16777215,3,1,0.7,0.2,0,20,10,3);
-            (FP.world as Level).createParticles(1,x,j,2,16777215,3,1,0.7,0.2,180,20,10,3);
+            (FP.world as Level).createParticles(1,x + width,j,2,0xFFFFFF,3,1,0.7,0.2,0,20,10,3);
+            (FP.world as Level).createParticles(1,x,j,2,0xFFFFFF,3,1,0.7,0.2,180,20,10,3);
          }
       }
    }

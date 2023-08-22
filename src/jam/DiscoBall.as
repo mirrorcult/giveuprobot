@@ -30,7 +30,7 @@ package jam
          }
          else if(this.appear)
          {
-            (FP.world as MenuWorld).createParticles(1,x,y,35,16777215,4,2,0.2,0.1,0,180,40,10);
+            (FP.world as MenuWorld).createParticles(1,x,y,35,0xFFFFFF,4,2,0.2,0.1,0,180,40,10);
          }
       }
       
@@ -40,8 +40,8 @@ package jam
          SprBall.alpha = 1;
          SprBall. scaleX = SprBall.scaleY = 1.4;
          this.appear = true;
-         (FP.world as MenuWorld).createParticles(30,x,y,35,16777215,4,2,0.2,0.1,0,180,40,10);
-         (FP.world as MenuWorld).createParticles(30,x,y,35,16777215,4,2,0.2,0.1,0,180,40,10,5);
+         (FP.world as MenuWorld).createParticles(30,x,y,35,0xFFFFFF,4,2,0.2,0.1,0,180,40,10);
+         (FP.world as MenuWorld).createParticles(30,x,y,35,0xFFFFFF,4,2,0.2,0.1,0,180,40,10,5);
       }
    }
 }

@@ -32,7 +32,7 @@ package jam
          for(var i:int = 0; i < 2; i++)
          {
             ax = FP.choose(-60,-45,-30,-15,0,15,30,45,60);
-            (FP.world as MenuWorld).createParticles(1,text.x + ax,text.y,10,16777215,2,1,1.5,0.5,0,180,12,4);
+            (FP.world as MenuWorld).createParticles(1,text.x + ax,text.y,10,0xFFFFFF,2,1,1.5,0.5,0,180,12,4);
          }
       }
       
@@ -49,7 +49,7 @@ package jam
                sfx.play();
             }
             this.particleBurst();
-            text.color = 16777215;
+            text.color = 0xFFFFFF;
             this.sine = (this.sine + Math.PI / 32) % (Math.PI * 4);
             text.angle = Math.sin(this.sine) * 6;
             text.scaleX = text.scaleY = 1.3 + Math.sin(this.sine / 2) * 0.1;

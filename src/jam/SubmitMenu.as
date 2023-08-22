@@ -59,7 +59,7 @@ package jam
          for(var i:int = 0; i < num; i++)
          {
             ax = FP.choose(-30,-20,-10,0,10,20,30);
-            (FP.world as MenuWorld).createParticles(1,160 + ax,y,10,16777215,2,1,1.5,0.5,0,180,12,4);
+            (FP.world as MenuWorld).createParticles(1,160 + ax,y,10,0xFFFFFF,2,1,1.5,0.5,0,180,12,4);
          }
       }
       
@@ -98,7 +98,7 @@ package jam
          addTween(this.alarm);
          addTween(this.aScore,false);
          var t:Text = new Text("Scoring Time!",160,20);
-         t.color = 16777215;
+         t.color = 0xFFFFFF;
          t.size = 16;
          t.centerOO();
          add(new TextEntity(t));
@@ -170,7 +170,7 @@ package jam
             {
                t = new Text("Your Total Time So Far Is...",160,this.draw);
             }
-            t.color = 16777215;
+            t.color = 0xFFFFFF;
             t.size = 8;
             t.centerOO();
             add(new TextEntity(t));
@@ -182,7 +182,7 @@ package jam
             new Sfx(Assets.SndRank6).play();
             this.particleBurst(this.draw);
             this.timeText = new Text(Stats.saveData.formattedTime,160,this.draw);
-            this.timeText.color = 16777215;
+            this.timeText.color = 0xFFFFFF;
             this.timeText.size = 24;
             this.timeText.centerOO();
             this.timeText.scaleX = this.timeText.scaleY = 1.5;
@@ -200,7 +200,7 @@ package jam
             {
                t = new Text("And You\'ve Completed...",160,this.draw);
             }
-            t.color = 16777215;
+            t.color = 0xFFFFFF;
             t.size = 8;
             t.centerOO();
             add(new TextEntity(t));
@@ -212,7 +212,7 @@ package jam
             new Sfx(Assets.SndRank6).play();
             this.particleBurst(this.draw);
             this.levelsText = new Text(Stats.saveData.levelNum - 1 + " Levels",160,this.draw);
-            this.levelsText.color = 16777215;
+            this.levelsText.color = 0xFFFFFF;
             this.levelsText.size = 24;
             this.levelsText.centerOO();
             this.levelsText.scaleX = this.levelsText.scaleY = 1.5;
@@ -223,7 +223,7 @@ package jam
          else if(this.num == 4)
          {
             t = new Text("Which gives you a score of...",160,this.draw);
-            t.color = 16777215;
+            t.color = 0xFFFFFF;
             t.size = 8;
             t.centerOO();
             add(new TextEntity(t));
@@ -236,7 +236,7 @@ package jam
             this.particleBurst(this.draw);
             this.partsAt = this.draw;
             this.scoreText = new Text("0",160,this.draw);
-            this.scoreText.color = 16777215;
+            this.scoreText.color = 0xFFFFFF;
             this.scoreText.size = 24;
             this.scoreText.centerOO();
             this.scoreText.scaleX = this.scoreText.scaleY = 1.5;

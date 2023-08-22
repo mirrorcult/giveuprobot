@@ -139,16 +139,16 @@ package jam
          {
             this.grapple.kill();
          }
-         this.level.createParticles(1,x,y,0,16777215,6,1,1.5,0,0,0,60,0);
-         this.level.createParticles(1,x,y,0,16777215,6,1,1.5,0,45,0,60,0);
-         this.level.createParticles(1,x,y,0,16777215,6,1,1.5,0,90,0,60,0);
-         this.level.createParticles(1,x,y,0,16777215,6,1,1.5,0,135,0,60,0);
-         this.level.createParticles(1,x,y,0,16777215,6,1,1.5,0,180,0,60,0);
-         this.level.createParticles(1,x,y,0,16777215,6,1,1.5,0,225,0,60,0);
-         this.level.createParticles(1,x,y,0,16777215,6,1,1.5,0,270,0,60,0);
-         this.level.createParticles(1,x,y,0,16777215,6,1,1.5,0,315,0,60,0);
-         this.level.createParticles(26,x,y,6,16777215,2,1,2,1,0,180,40,10);
-         this.level.createParticles(13,x,y,6,16777215,3,2,4,1,0,180,40,10);
+         this.level.createParticles(1,x,y,0,0xFFFFFF,6,1,1.5,0,0,0,60,0);
+         this.level.createParticles(1,x,y,0,0xFFFFFF,6,1,1.5,0,45,0,60,0);
+         this.level.createParticles(1,x,y,0,0xFFFFFF,6,1,1.5,0,90,0,60,0);
+         this.level.createParticles(1,x,y,0,0xFFFFFF,6,1,1.5,0,135,0,60,0);
+         this.level.createParticles(1,x,y,0,0xFFFFFF,6,1,1.5,0,180,0,60,0);
+         this.level.createParticles(1,x,y,0,0xFFFFFF,6,1,1.5,0,225,0,60,0);
+         this.level.createParticles(1,x,y,0,0xFFFFFF,6,1,1.5,0,270,0,60,0);
+         this.level.createParticles(1,x,y,0,0xFFFFFF,6,1,1.5,0,315,0,60,0);
+         this.level.createParticles(26,x,y,6,0xFFFFFF,2,1,2,1,0,180,40,10);
+         this.level.createParticles(13,x,y,6,0xFFFFFF,3,2,4,1,0,180,40,10);
          FP.world.add(new Corpse(x,y));
          (FP.world as Level).die();
       }
@@ -184,7 +184,7 @@ package jam
          {
             if(onG)
             {
-               this.level.createParticles(1,x,y + 6,2,16777215,3,1,0.3,0.1,90,15,20,5);
+               this.level.createParticles(1,x,y + 6,2,0xFFFFFF,3,1,0.3,0.1,90,15,20,5);
             }
             (graphic as Spritemap).flipped = false;
             this.dir = 1;
@@ -197,7 +197,7 @@ package jam
          {
             if(onG)
             {
-               this.level.createParticles(1,x,y + 6,2,16777215,3,1,0.3,0.1,90,15,20,5);
+               this.level.createParticles(1,x,y + 6,2,0xFFFFFF,3,1,0.3,0.1,90,15,20,5);
             }
             (graphic as Spritemap).flipped = true;
             this.dir = -1;
@@ -229,7 +229,7 @@ package jam
             {
                if(Input.pressed("jump"))
                {
-                  this.level.createParticles(6,x,y + 6,2,16777215,3,2,1,0.5,90,30,20,8);
+                  this.level.createParticles(6,x,y + 6,2,0xFFFFFF,3,2,1,0.5,90,30,20,8);
                   this.varJ = true;
                   this.alarmVarJTime.start();
                   this.vSpeed = this.JUMP;

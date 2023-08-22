@@ -52,14 +52,14 @@ package jam
                      FP.world.remove(this);
                      for(i = x; i <= x + width; i = i + 4)
                      {
-                        (FP.world as Level).createParticles(2,i,(FP.world as Level).height + 6,3,16777215,4,2,0.8,0.2,90,30,50,10);
+                        (FP.world as Level).createParticles(2,i,(FP.world as Level).height + 6,3,0xFFFFFF,4,2,0.8,0.2,90,30,50,10);
                      }
                   }
                   else
                   {
                      for(i = x; i <= x + width; i = i + 4)
                      {
-                        (FP.world as Level).createParticles(2,i,y + height,3,16777215,4,2,0.3,0.1,0,180,50,10);
+                        (FP.world as Level).createParticles(2,i,y + height,3,0xFFFFFF,4,2,0.3,0.1,0,180,50,10);
                      }
                   }
                }

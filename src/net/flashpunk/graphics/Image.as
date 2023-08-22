@@ -201,6 +201,17 @@
 			_tint = xform;
 			updateBuffer();
 		}
+
+		public function setColorWhite():void
+		{
+			_tint = _colorTransform;
+			_tint.redMultiplier = 1;
+			_tint.greenMultiplier = 1;
+			_tint.blueMultiplier = 1;
+			_tint.alphaMultiplier = _alpha;
+			_tint.color = 0xFFFFFF;
+			updateBuffer();
+		}
 		
 		/**
 		 * If you want to draw the Image horizontally flipped. This is

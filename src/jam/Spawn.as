@@ -17,7 +17,7 @@ package jam
          spr.flipped = true;
          spr.set(5, 13);
          spr.rate = 0;
-         spr.color = 16777215;
+         spr.color = 0xFFFFFF;
          spr.alpha = 0;
       }
       
