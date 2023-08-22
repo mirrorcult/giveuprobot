@@ -460,22 +460,7 @@ package jam
          var sfx:Sfx = new Sfx(ARR_GOODJOB[lastGoodJob])
          sfx.play(VCVOL);
       }
-      
-      public static function checkDomain(stage:Stage, domain:String) : Boolean
-      {
-         var url:String = stage.loaderInfo.url;
-         var startCheck:int = url.indexOf("://") + 3;
-         var domainLen:int = url.indexOf("/",startCheck) - startCheck;
-         var d:String = url.substr(startCheck,domainLen);
-         var splits:Array = d.split(".");
-         d = splits[splits.length - 2] + "." + splits[splits.length - 1];
-         if(d == domain)
-         {
-            return true;
-         }
-         return false;
-      }
-      
+
       public static function playLoad() : void
       {
          var sfx:Sfx = new Sfx(ARR_GOODLUCK[Math.floor(Math.random() * ARR_GOODLUCK.length)])
