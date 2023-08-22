@@ -434,8 +434,8 @@ package jam
                lastGiveUp = Math.floor(Math.random() * ARR_GIVEUP.length);
             }
          }
-         var sfx:Sfx = new Sfx(ARR_GIVEUP[GIVEUPVOL])
-         sfx.play(VCVOL);
+         var sfx:Sfx = new Sfx(ARR_GIVEUP[lastGiveUp])
+         sfx.play(GIVEUPVOL);
       }
       
       public static function playGoodJob() : void
