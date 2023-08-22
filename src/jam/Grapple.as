@@ -14,7 +14,7 @@ package jam
       private var SprGrapple:Spritemap;
       
       private static const ImgGrapple:Class = Library.Grapple_ImgGrapple;
-       
+      
       
       private var changedRad:int = 0;
       
@@ -218,12 +218,12 @@ package jam
                else if(obj is ElectricBlock)
                {
                   var sfxe:Sfx = new Sfx(Assets.SndGrappleElec);
-                  sfx.play();
+                  sfxe.play();
                }
                else
                {
                   var sfxg:Sfx = new Sfx(Assets.SndGrapple);
-                  sfx.play();
+                  sfxg.play();
                }
                if(this.wall is Saw)
                {

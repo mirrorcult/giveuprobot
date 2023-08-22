@@ -80,6 +80,8 @@ package jam
       private var grappleWall:Boolean = false;
       
       public var hSpeed:Number = 0;
+
+      public var cameraOffsetY:int = 0;
       
       public function Player(level:Level, x:int, y:int)
       {
@@ -170,6 +172,13 @@ package jam
             to.frame = 0;
          }
          to.rate = del;
+      }
+
+      /* GUR2 PORTED FUNCTION */
+      public function cameraFollow() : void
+      {
+         FP.camera.x = Math.min(Math.max(x - 160,0),this.level.width - 320) + FP.cameraOffset;
+         FP.camera.y = Math.min(Math.max(y + this.cameraOffsetY - 120,0),this.level.height - 240);
       }
       
       override public function update() : void
@@ -309,8 +318,7 @@ package jam
          {
             this.setSprite(SprFall);
          }
-         FP.camera.x = x;
-         FP.camera.y = y;
+         this.cameraFollow();
          if(x > (FP.world as Level).width + originX - 1)
          {
             if(this.grapple)

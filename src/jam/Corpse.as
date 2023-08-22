@@ -13,7 +13,7 @@ package jam
          super();
          this.x = x;
          this.y = y;
-         this.graphic = spr = new Spritemap(Player_ImgIdle,10,18);
+         this.graphic = spr = new Spritemap(Player.ImgIdle,10,18);
          spr.originX = 5;
          spr.originY = 13;
          spr.flipped = true;

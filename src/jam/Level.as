@@ -291,10 +291,7 @@ package jam
          }
          add(new Block(-8,0,8,this.height));
          add(new Block(0,-8,this.width,8));
-         //FP.camera.setBounds(0,0,this.width,this.height);
-         //FP.camera.setOrigin(160,120);
-         FP.camera.x = this.player.x;
-         FP.camera.y = this.player.y;
+         this.player.cameraFollow();
          getClass(Block, vec);
          for each(e in vec)
          {
