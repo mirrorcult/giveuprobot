@@ -16,6 +16,7 @@
 	import net.flashpunk.utils.Input;
 	import tas.TAS;
 	import flash.geom.ColorTransform;
+	import jam.Level;
 	
 	/**
 	 * Main game Sprite class, added to the Flash Stage. Manages the game loop.
@@ -106,6 +107,7 @@
 		public function render():void
 		{
 			var oldScreen:BitmapData = null;
+			var a:uint = 0;
 			// grab old screen for use in engineflash
 			if (flash && canFlash)
 			{
@@ -122,6 +124,12 @@
 			if (flash && canFlash)
 			{
 				FP.buffer.draw(oldScreen, null, new ColorTransform(1 + Math.sin(this.sss) * 0.2, 1 + Math.sin(this.sss + Math.PI * 2 / 3) * 0.2, 1 + Math.sin(this.sss + Math.PI * 4 / 3) * 0.2, 0.65));
+			}
+
+			if (FP.world is Level && (FP.world as Level).shake)
+			{
+				a = (FP.world as Level).shakeAmount;
+					FP.buffer.scroll(FP.choose(a, -a), FP.choose(a, -a));
 			}
 
 			/* END MADDY ENGINEFLASH */
