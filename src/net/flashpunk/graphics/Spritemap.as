@@ -105,8 +105,8 @@
 		{
 			x = -oX;
 			y = -oY;
-			originX = x;
-			originY = y;
+			originX = oX;
+			originY = oY;
 		}
 		
 		/**

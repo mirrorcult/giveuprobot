@@ -20,19 +20,19 @@ package jam
       
       private var level:Level;
       
-      private var direction:Number;
+      public var direction:Number;
       
       private var wall:Block;
       
-      private var dir:int;
+      public var dir:int;
       
       private const SAW_MOMENTUM:Number = 5.0;
       
-      private var radius:Number;
+      public var radius:Number;
       
-      private var momentum:Number = 0;
+      public var momentum:Number = 0;
       
-      private var player:Player;
+      public var player:Player;
       
       private const SWING:Number = 0.1;
       
@@ -72,6 +72,7 @@ package jam
          originY = 3;
          layer = -1000;
          graphic = SprGrapple = new Spritemap(ImgGrapple,4,4);
+         SprGrapple.set(2, 2);
          SprGrapple.scaleX = 3;
          SprGrapple.scaleY = 3;
          SprGrapple.frame = 0;
