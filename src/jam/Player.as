@@ -86,31 +86,25 @@ package jam
       public function Player(level:Level, x:int, y:int)
       {
          SprIdle = new Spritemap(ImgIdle,10,18);
-         SprIdle.flipped = true;
          SprIdle.set(5, 13);
+         SprIdle.add("anim", [0, 1], 1);
          SprThrowUp = new Spritemap(ImgThrowUp,10,17);
-         SprThrowUp.flipped = true;
          SprThrowUp.set(5, 12);
          SprThrow = new Spritemap(ImgThrow,10,17);
-         SprThrow.flipped = true;
          SprThrow.set(5, 12);
          SprThrowDown = new Spritemap(ImgThrowDown,10,17);
-         SprThrowDown.flipped = true;
          SprThrowDown.set(5, 12);
          SprJump = new Spritemap(ImgJump,10,18);
-         SprJump.flipped = true;
          SprJump.set(5, 13);
          SprGrappleAir = new Spritemap(ImgGrappleAir,12,17);
-         SprGrappleAir.flipped = true;
          SprGrappleAir.set(6, 10);
+         SprGrappleAir.add("anim", [0,1,2,3], 1);
          SprRun = new Spritemap(ImgRun,12,17);
-         SprRun.flipped = true;
          SprRun.set(6, 12);
+         SprRun.add("anim", [0,1,2,3], 1);
          SprFall = new Spritemap(ImgFall,10,17);
-         SprFall.flipped = true;
          SprFall.set(5, 12);
          SprGrapple = new Spritemap(ImgGrapple,12,17);
-         SprGrapple.flipped = true;
          SprGrapple.set(6, 12);
          this.alarmVarJTime = new Alarm(this.VARJ_TIME,this.onVarJTime,Tween.PERSIST);
          super();
@@ -162,7 +156,11 @@ package jam
             graphic = to;
             to.frame = 0;
          }
-         to.rate = del;
+         if (del != 0)
+         {
+            (graphic as Spritemap).play("anim");
+            to.rate = 1 / del;
+         }
       }
 
       /* GUR2 PORTED FUNCTION */
