@@ -174,6 +174,14 @@
 			_frame = frame;
 			updateBuffer();
 		}
+
+		/* Sets frame directly without bulldozing animation */
+		public function setFrameDirect(frame:uint = 0):void
+		{
+			if (_frame == frame) return;
+			_frame = frame;
+			updateBuffer();
+		}
 		
 		/**
 		 * Assigns the Spritemap to a random frame.
