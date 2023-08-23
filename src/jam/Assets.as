@@ -14,9 +14,7 @@ package jam
       public static const SndNewGame:Class = Library.Assets_SndNewGame;
       
       public static var currentMusic:Class;
-      
-      private static const ARR_GOODLUCK:Array = [VcGoodLuck1,VcGoodLuck2];
-      
+            
       public static const MusGame:Class = Library.Assets_MusGame;
       
       public static const SndGrappleSaw:Class = Library.Assets_SndGrappleSaw;
@@ -182,9 +180,7 @@ package jam
       public static const SndThrow:Class = Library.Assets_SndThrow;
       
       public static const NAMES:Array = ["Normal","HARD"];
-      
-      private static const ARR_GIVEUP:Array = [VcGiveUp1,VcGiveUp2,VcGiveUp3,VcGiveUp4,VcGiveUp5,VcGiveUp6,VcGiveUp7,VcGiveUp8,VcGiveUp9,VcGiveUp10,VcGiveUp11,VcGiveUp12,VcGiveUp13,VcGiveUp14,VcGiveUp15,VcGiveUp16,VcGiveUp17,VcGiveUp18,VcGiveUp19,VcGiveUp20,VcGiveUp21,VcGiveUp22,VcGiveUp23,VcGiveUp24,VcGiveUp25,VcGiveUp26,VcGiveUp27,VcGiveUp28,VcGiveUp29,VcGiveUp30,VcGiveUp31,VcGiveUp32,VcGiveUp33,VcGiveUp34,VcGiveUp35,VcGiveUp36];
-      
+            
       public static const SndDeselect:Class = Library.Assets_SndDeselect;
       
       public static const SndStatic:Class = Library.Assets_SndStatic;
@@ -350,13 +346,9 @@ package jam
       private static const VcGoodJob20:Class = Library.Assets_VcGoodJob20;
       
       private static const VcGoodJob18:Class = Library.Assets_VcGoodJob18;
-      
-      private static const ARR_GOODJOB:Array = [VcGoodJob1,VcGoodJob2,VcGoodJob3,VcGoodJob4,VcGoodJob5,VcGoodJob6,VcGoodJob7,VcGoodJob8,VcGoodJob9,VcGoodJob10,VcGoodJob11,VcGoodJob12,VcGoodJob13,VcGoodJob14,VcGoodJob15,VcGoodJob16,VcGoodJob17,VcGoodJob18,VcGoodJob19,VcGoodJob20,VcGoodJob21,VcGoodJob22,VcGoodJob23];
-      
+            
       public static const SUBMIT_IDS:Array = ["3172","3173"];
-      
-      private static const ARR_BYE:Array = [VcBye1,VcBye2,VcBye3,VcBye4,VcBye5,VcBye6];
-      
+            
       private static const VcGoodJob10:Class = Library.Assets_VcGoodJob10;
       
       private static const VcBye3:Class = Library.Assets_VcBye3;
@@ -366,7 +358,15 @@ package jam
       private static const VcGoodLuck1:Class = Library.Assets_VcGoodLuck1;
       
       private static const VcGoodLuck2:Class = Library.Assets_VcGoodLuck2;
+
+      private static const ARR_BYE:Array = [VcBye1,VcBye2,VcBye3,VcBye4,VcBye5,VcBye6];
       
+      private static const ARR_GOODJOB:Array = [VcGoodJob1,VcGoodJob2,VcGoodJob3,VcGoodJob4,VcGoodJob5,VcGoodJob6,VcGoodJob7,VcGoodJob8,VcGoodJob9,VcGoodJob10,VcGoodJob11,VcGoodJob12,VcGoodJob13,VcGoodJob14,VcGoodJob15,VcGoodJob16,VcGoodJob17,VcGoodJob18,VcGoodJob19,VcGoodJob20,VcGoodJob21,VcGoodJob22,VcGoodJob23];
+
+      private static const ARR_GIVEUP:Array = [VcGiveUp1,VcGiveUp2,VcGiveUp3,VcGiveUp4,VcGiveUp5,VcGiveUp6,VcGiveUp7,VcGiveUp8,VcGiveUp9,VcGiveUp10,VcGiveUp11,VcGiveUp12,VcGiveUp13,VcGiveUp14,VcGiveUp15,VcGiveUp16,VcGiveUp17,VcGiveUp18,VcGiveUp19,VcGiveUp20,VcGiveUp21,VcGiveUp22,VcGiveUp23,VcGiveUp24,VcGiveUp25,VcGiveUp26,VcGiveUp27,VcGiveUp28,VcGiveUp29,VcGiveUp30,VcGiveUp31,VcGiveUp32,VcGiveUp33,VcGiveUp34,VcGiveUp35,VcGiveUp36];
+
+      private static const ARR_GOODLUCK:Array = [VcGoodLuck1,VcGoodLuck2];
+
       private static var lastGiveUp:int = -1;
 
       private static var music:Sfx;
