@@ -15,7 +15,6 @@ package jam
          this.y = y;
          this.graphic = spr = new Spritemap(Player.ImgIdle,10,18);
          spr.set(5, 13);
-         spr.flipped = true;
          spr.rate = 0;
          spr.color = 4294967295;
       }
