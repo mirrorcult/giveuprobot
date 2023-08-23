@@ -97,10 +97,11 @@ package jam
          a = new Entity();
          var spr:Spritemap = new Spritemap(DiscoBall.ImgBall,64,64);
          a.graphic = spr;
+         spr.add("spin", [0,1,2,3], 1/6, true);
          spr.scaleX = 4;
          spr.scaleY = 4;
          spr.alpha = 0.1;
-         spr.rate = 6;
+         spr.play("spin");
          a.layer = -1000;
          a.x = 32;
          a.y = -8;
