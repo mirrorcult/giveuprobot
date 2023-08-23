@@ -13,10 +13,10 @@ package jam
       {
          super(x,y,16,16);
          graphic = SprSaw = new Spritemap(ImgSaw,16,16);
-         SprSaw.rate = 3;
-         // TODO engine is this right for flip?
-         SprSaw.flipped = !flip;
+         SprSaw.flipped = flip;
          layer = 10;
+         SprSaw.add("spin", [0,1,2,3], 1/3, true);
+         SprSaw.play("spin");
       }
    }
 }
