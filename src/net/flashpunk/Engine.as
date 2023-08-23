@@ -15,14 +15,18 @@
 	import net.flashpunk.utils.Draw;
 	import net.flashpunk.utils.Input;
 	import tas.TAS;
+	import flash.geom.ColorTransform;
 	
 	/**
 	 * Main game Sprite class, added to the Flash Stage. Manages the game loop.
 	 */
 	public class Engine extends MovieClip
 	{
-		// maddy variable!
-		public static var flash:Boolean = false;
+		// maddy variables!
+		private var sss:Number = 0;
+		public static var flash:Boolean = true;
+		// should the game world flash ever (regardless of the game thinks it should be enabled at this moment)
+		public static var canFlash:Boolean = true;
 
 		/**
 		 * If the game should stop updating/rendering.
@@ -101,10 +105,27 @@
 		 */
 		public function render():void
 		{
+			var oldScreen:BitmapData = null;
+			// grab old screen for use in engineflash
+			if (flash && canFlash)
+			{
+				oldScreen = FP.buffer.clone();
+				this.sss = (this.sss + Math.PI / 16) % (Math.PI * 2);
+			}
+
 			FP.screen.swap();
 			Draw.resetTarget();
 			FP.screen.refresh();
 			if (FP._world.visible) FP._world.render();
+
+			/* MADDY ENGINEFLASH */
+			if (flash && canFlash)
+			{
+				FP.buffer.draw(oldScreen, null, new ColorTransform(1 + Math.sin(this.sss) * 0.2, 1 + Math.sin(this.sss + Math.PI * 2 / 3) * 0.2, 1 + Math.sin(this.sss + Math.PI * 4 / 3) * 0.2, 0.65));
+			}
+
+			/* END MADDY ENGINEFLASH */
+
 			FP.screen.redraw();
 		}
 		

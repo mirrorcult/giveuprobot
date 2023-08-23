@@ -9,6 +9,7 @@ package jam
    import net.flashpunk.FP;
    import net.flashpunk.Tween;
    import net.flashpunk.Sfx;
+   import net.flashpunk.Engine;
    
    public class MainMenu extends MenuWorld
    {
@@ -296,6 +297,7 @@ package jam
          Assets.playLoad();
          Assets.setMusic(new Sfx(Assets.MusGame));
          add(new FuzzTransition(FuzzTransition.LOAD));
+         Engine.flash = true;
       }
       
       private function toggleParticles(m:MenuButton) : void
