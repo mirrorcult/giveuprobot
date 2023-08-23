@@ -240,7 +240,7 @@ package jam
             {
                var sd:Saw = this.wall as Saw;
                onSaw = true;
-               this.momentum = this.SAW_MOMENTUM * (!sd.SprSaw.flipped ?1:-1);
+               this.momentum = this.SAW_MOMENTUM * (sd.SprSaw.flipped ?1:-1);
                this.level.screenShake(4,1);
             }
             else
