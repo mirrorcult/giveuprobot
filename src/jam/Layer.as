@@ -9,6 +9,7 @@ package jam
         public static const MENU_TEXT:int = 6;
         public static const SAW:int = 5;
 
+        public static const ELECTRIC_BLOCK:int = 2;
         public static const MOVING_BLOCKS:int = 1;
         // not referred to but here as a reference point, blocks and shit
         public static const BLOCKS:int = 0;
