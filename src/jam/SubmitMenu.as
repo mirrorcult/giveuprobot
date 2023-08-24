@@ -87,6 +87,8 @@ package jam
       override public function begin() : void
       {
          super.begin();
+         FP.camera.x = 0;
+         FP.camera.y = 0;
          Assets.musicVolume = Assets.musicVolume / 2;
          this.score = (Stats.saveData.levelNum * (Stats.saveData.mode == 0?40000:90000) - Stats.saveData.time) * 10;
          this.score = Math.max(this.score,0);

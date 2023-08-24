@@ -6,6 +6,7 @@ package jam
    import net.flashpunk.utils.Draw;
    import net.flashpunk.Sfx;
    import net.flashpunk.graphics.Text;
+   import net.flashpunk.FP;
    
    public class StatsMenu extends MenuWorld
    {
@@ -90,6 +91,8 @@ package jam
       override public function begin() : void
       {
          var g:GraphDot = null;
+         FP.camera.x = 0;
+         FP.camera.y = 0;
 
          // forgive my sins
          var t:FlashingText = null;

@@ -84,6 +84,8 @@ package jam
       override public function begin() : void
       {
          super.begin();
+         FP.camera.x = 0;
+         FP.camera.y = 0;
          for(var i:int = 0; i < 6; i++)
          {
             this.balls.push(add(new DiscoBall(80 + 80 * (i % 3),96 + Math.floor(i / 3) * 80)) as DiscoBall);

@@ -58,6 +58,9 @@ package jam
       
       override public function render() : void
       {
+         // Reset from camera orientation
+         x = FP.camera.x;
+         y = FP.camera.y;
          img.source.noise(Math.random() * 100);
 
          if(this.up)
