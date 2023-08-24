@@ -226,6 +226,9 @@ package jam
       
       public function screenShake(time:uint, amount:uint = 2) : void
       {
+         if (!Assets.screenshake)
+            return;
+
          this.shake = true;
          this.shakeAmount = amount;
          this.alarmShake.reset(2);

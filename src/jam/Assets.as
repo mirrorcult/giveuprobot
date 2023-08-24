@@ -104,6 +104,8 @@ package jam
       public static const VcGiveUp10:Class = Library.Assets_VcGiveUp10;
       
       public static var particles:Boolean = true;
+
+      public static var screenshake:Boolean = true;
       
       private static const VcGiveUp20:Class = Library.Assets_VcGiveUp20;
       
@@ -332,7 +334,7 @@ package jam
       public static const SndDrop:Class = Library.Assets_SndDrop;
       
       private static const VcGoodJob11:Class = Library.Assets_VcGoodJob11;
-      
+   
       public static const L44:Class = Library.Assets_L44;
       
       private static const VcGoodJob19:Class = Library.Assets_VcGoodJob19;

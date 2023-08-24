@@ -158,9 +158,11 @@ package jam
          this.clearMenu();
          this.toRemove.push(add(new MenuButton("Music: " + (Assets.musicVolume * 100).toFixed(0) + "%",160,100,this.musicVolume)));
          this.toRemove.push(add(new MenuButton("Sounds: " + (FP.volume * 100).toFixed(0) + "%",160,120,this.soundVolume)));
-         this.toRemove.push(add(new MenuButton("Particles: " + (!!Assets.particles?"On":"Off"),160,140,this.toggleParticles)));
-         this.toRemove.push(add(new MenuButton("Game Timer: " + (!!Assets.timer?"On":"Off"),160,160,this.toggleTimer)));
-         this.toRemove.push(add(new MenuButton("Back",160,200,this.gotoMenuMain)));
+         this.toRemove.push(add(new MenuButton("Particles: " + (Assets.particles?"On":"Off"),160,140,this.toggleParticles)));
+         this.toRemove.push(add(new MenuButton("Game Timer: " + (Assets.timer?"On":"Off"),160,160,this.toggleTimer)));
+         this.toRemove.push(add(new MenuButton("Blur: " + (Engine.canFlash?"On":"Off"),160,180,this.toggleBlur)));
+         this.toRemove.push(add(new MenuButton("Screenshake: " + (Assets.screenshake?"On":"Off"),160,200,this.toggleScreenshake)));
+         this.toRemove.push(add(new MenuButton("Back",160,220,this.gotoMenuMain)));
       }
       
       private function gotoMenuCredits(m:MenuButton = null) : void
@@ -314,7 +316,35 @@ package jam
          }
          m.text.centerOO();
       }
-      
+
+      private function toggleBlur(m:MenuButton) : void
+      {
+         Engine.canFlash = !Engine.canFlash;
+         if(Engine.canFlash)
+         {
+            m.text.text = "Blur: On";
+         }
+         else
+         {
+            m.text.text = "Blur: Off";
+         }
+         m.text.centerOO();
+      }
+
+      private function toggleScreenshake(m:MenuButton) : void
+      {
+         Assets.screenshake = !Assets.screenshake;
+         if(Assets.screenshake)
+         {
+            m.text.text = "Screenshake: On";
+         }
+         else
+         {
+            m.text.text = "Screenshake: Off";
+         }
+         m.text.centerOO();
+      }
+
       private function gotoMenuMain(m:MenuButton = null) : void
       {
          var t:Text = null;
