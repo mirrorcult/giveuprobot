@@ -3,7 +3,7 @@
 		"source-path": [
 			"src"
 		],
-		"output": "bin/GURTaserDeluxe.swf",
+		"output": "bin/GURTrainer.swf",
 		"default-frame-rate": 60,
 		"default-background-color": "#000000",
 		"default-size": {

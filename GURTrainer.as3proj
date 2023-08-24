@@ -4,7 +4,7 @@
   <output>
     <movie outputType="Application" />
     <movie input="" />
-    <movie path="bin\GURTaserDeluxe.swf" />
+    <movie path="bin\GURTrainer.swf" />
     <movie fps="60" />
     <movie width="640" />
     <movie height="480" />
