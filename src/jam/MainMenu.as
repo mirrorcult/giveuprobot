@@ -88,11 +88,11 @@ package jam
          var f:FlashingText = null;
          super.begin();
          addTween(this.presAlarm, true);
-         t = new Title(16, "Adult Swim Games Presents",160,40, true, 6710886, true)
+         t = new Title(16, "mirrorcult Presents",160,40, true, 6710886, true)
          t.layer = Layer.MENU_TEXT;
          this.presents = t.text;
          add(t);
-         f = new FlashingText(36, "Give Up, ROBOT",160,64, true, 0xFFFFFF, true)
+         f = new FlashingText(36, "GURTaser Deluxe",160,64, true, 0xFFFFFF, true)
          f.layer = Layer.MENU_TEXT;
          this.title = f.text;
          add(f);

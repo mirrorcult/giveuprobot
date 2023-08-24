@@ -31,6 +31,13 @@ package
          Input.define("jump",Key.X,Key.UP,Key.S);
          Input.define("grapple",Key.Z,Key.A);
          Input.define("skip",Key.ENTER);
+         Input.define("return", Key.ESCAPE);
+         Input.define("back", Key.BACKSPACE);
+         Input.define("next", Key.TAB);
+         Input.define("restart", Key.R);
+         Input.define("tas", Key.T);
+         Input.define("camleft", Key.Q);
+         Input.define("camright", Key.E);
          FP.world = new MainMenu();
 
          FP.console.enable();

@@ -10,6 +10,7 @@ package jam
    import net.flashpunk.FP;
    import net.flashpunk.Tween;
    import net.flashpunk.Sfx;
+   import net.flashpunk.utils.Input;
    
    public class Level extends World
    {
@@ -75,8 +76,6 @@ package jam
          return Stats.saveData.mode == 1 ? "H" : "L";
       }
 
-
-
       // GUR TRAINER STOP
       
       public function die() : void
@@ -111,6 +110,24 @@ package jam
             this.timer.text = Stats.saveData.getTimePlus(this.time);
             this.timer.x = FP.camera.x;
             this.timer.y = FP.camera.y;
+         }
+
+         /* GURTaser Deluxe */
+         if (Input.pressed("return"))
+         {
+            add(new FuzzTransition(FuzzTransition.MENU,MainMenu))         
+         }
+         else if (Input.pressed("next"))
+         {
+            add(new FuzzTransition(FuzzTransition.GOTO_NEXT));
+         }
+         else if (Input.pressed("back") && levelNum != 1)
+         {
+            add(new FuzzTransition(FuzzTransition.NEW, null, false, levelNum - 1));
+         }
+         else if (Input.pressed("restart") && player != null)
+         {
+            player.die();
          }
       }
       
