@@ -492,6 +492,8 @@
 		/** @private */ internal var _typePrev:Entity;
 		/** @private */ internal var _typeNext:Entity;
 		/** @private */ internal var _recycleNext:Entity;
+		/** @private */ internal var _beingAdded:Boolean = false;
+		/** @private */ internal var _beingRemoved:Boolean = false;
 		
 		// Collision information.
 		/** @private */ private const HITBOX:Mask = new Mask;

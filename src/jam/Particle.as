@@ -40,7 +40,6 @@ package jam
          visible = false;
          active = false;
          this.alarm.active = false;;
-         FP.world.remove(this);
          (FP.world as Level).particles.push(this);
       }
       
