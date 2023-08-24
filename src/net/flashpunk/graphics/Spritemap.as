@@ -130,7 +130,7 @@
 		 * @param	reset		If the animation should force-restart if it is already playing.
 		 * @return	Anim object representing the played animation.
 		 */
-		public function play(name:String = "", reset:Boolean = false):Anim
+		public function play(name:String = "", reset:Boolean = false, startFrame:uint = 0):Anim
 		{
 			if (!reset && _anim && _anim._name == name) return _anim;
 			_anim = _anims[name];
@@ -141,9 +141,9 @@
 				updateBuffer();
 				return null;
 			}
-			_index = 0;
+			_index = startFrame;
 			_timer = 0;
-			_frame = uint(_anim._frames[0]);
+			_frame = uint(_anim._frames[startFrame]);
 			complete = false;
 			updateBuffer();
 			return _anim;

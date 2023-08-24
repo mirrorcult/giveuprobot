@@ -16,7 +16,7 @@ package jam
          super(x,y,width,height);
          graphic = SprElec = new Spritemap(ImgElec, 8, 8);
          SprElec.add("anim", [0,1,2,3], 1/10);
-         SprElec.play("anim");
+         SprElec.play("anim", false, y / 8 % SprElec.frameCount);
       }
       
       override public function render() : void
