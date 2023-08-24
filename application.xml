@@ -19,7 +19,7 @@
     <aspectRatio>landscape</aspectRatio>
     <renderMode>direct</renderMode>
     <autoOrients>false</autoOrients>
-    <fullScreen>true</fullScreen>
+    <fullScreen>false</fullScreen>
     <softKeyboardBehavior>none</softKeyboardBehavior>
     <depthAndStencil>true</depthAndStencil>
     <requestedDisplayResolution>high</requestedDisplayResolution>
