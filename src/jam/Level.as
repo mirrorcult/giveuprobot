@@ -231,7 +231,7 @@ package jam
 
          this.shake = true;
          this.shakeAmount = amount;
-         this.alarmShake.reset(2);
+         this.alarmShake.reset(time);
       }
       
       private function build() : void
