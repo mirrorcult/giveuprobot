@@ -5,6 +5,7 @@ package jam
    import net.flashpunk.Tween;
    import net.flashpunk.utils.Draw;
    import net.flashpunk.Sfx;
+   import net.flashpunk.graphics.Text;
    
    public class StatsMenu extends MenuWorld
    {
@@ -24,19 +25,19 @@ package jam
       
       private var mode:Boolean = true;
       
-      private var hitText:FlashingText;
+      private var hitText:Text;
       
       private var alarmColors:Alarm;
       
       public var color:uint;
       
-      private var text:FlashingText;
+      private var text:Text;
       
       private const G_WIDTH:uint = 300;
       
       private const colors:Array = [16711680,16776960,65280,65535,255,16711935];
       
-      private var inText:FlashingText;
+      private var inText:Text;
       
       public function StatsMenu()
       {
@@ -91,13 +92,13 @@ package jam
          var g:GraphDot = null;
 
          // forgive my sins
-         var t:Title = null;
+         var t:FlashingText = null;
          super.begin();
          addTween(this.alarmColors, true);
-         this.text = (add(new Title(24, "", 160, 16, true, 0xFFFFFF, true)) as Title).text as FlashingText;
-         this.inText = (add(t = new Title(16, "", 160, 120, true, 0xFFFFFF, true)) as Title).text as FlashingText;
+         this.text = (add(new FlashingText(24, "", 160, 16, true, 0xFFFFFF)) as FlashingText).text;
+         this.inText = (add(t = new FlashingText(16, "", 160, 120, true, 0xFFFFFF)) as FlashingText).text;
          t.layer = Layer.MENU_TEXT;
-         this.hitText = (add(new Title(8, "Z/A - Time    ENTER - Continue",160,232, true, 0xFFFFFF, true)) as Title).text as FlashingText;
+         this.hitText = (add(new FlashingText(8, "Z/A - Time    ENTER - Continue",160,232, true, 0xFFFFFF)) as FlashingText).text;
          for(var i:int = 0; i < Assets.TOTAL_LEVELS[Stats.saveData.mode]; i++)
          {
             g = new GraphDot();

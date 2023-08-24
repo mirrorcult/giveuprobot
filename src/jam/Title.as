@@ -11,15 +11,12 @@ package jam
       private var angleChange:Boolean;
       public var text:Text;
 
-      public function Title(size:int, str:String, x:int, y:int, active:Boolean = true, color:uint = 0xFFFFFF, flashing:Boolean = false, angleChange:Boolean = false)
+      public function Title(size:int, str:String, x:int, y:int, active:Boolean = true, color:uint = 0xFFFFFF, angleChange:Boolean = false)
       {
          super(x,y);
          this.active = active;
          Text.size = size;
-         if (flashing)
-            graphic = this.text = new FlashingText(str);
-         else
-            graphic = this.text = new Text(str);
+         graphic = this.text = new Text(str);
          this.text.color = color;
          this.text.centerOO();
          this.sine = Math.random() * Math.PI * 2;

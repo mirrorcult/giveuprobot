@@ -85,16 +85,17 @@ package jam
       {
          var a:Entity = null;
          var t:Title = null;
+         var f:FlashingText = null;
          super.begin();
          addTween(this.presAlarm, true);
-         t = new Title(16, "Adult Swim Games Presents",160,40, true, 6710886, true, true)
+         t = new Title(16, "Adult Swim Games Presents",160,40, true, 6710886, true)
          t.layer = Layer.MENU_TEXT;
          this.presents = t.text;
          add(t);
-         t = new Title(36, "Give Up, ROBOT",160,64, true, 0xFFFFFF, true, true)
-         t.layer = Layer.MENU_TEXT;
-         this.title = t.text;
-         add(t);
+         f = new FlashingText(36, "Give Up, ROBOT",160,64, true, 0xFFFFFF, true)
+         f.layer = Layer.MENU_TEXT;
+         this.title = f.text;
+         add(f);
          a = new Entity();
          var spr:Spritemap = new Spritemap(DiscoBall.ImgBall,64,64);
          a.graphic = spr;
