@@ -16,6 +16,7 @@ package jam
 
         public static const PLAYER:int = -5;
         public static const ABOVE_PLAYER:int = -6;
-        public static const ABOVE_ALL:int = -7;
+        public static const TRANSITION:int = -7;
+        public static const ABOVE_ALL:int = -8;
    }
 }

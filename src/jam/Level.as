@@ -46,6 +46,8 @@ package jam
       private var alarmShake:Alarm;
       
       private var alarmRestart:Alarm;
+
+      public var tasWatermark:TASWatermark;
       
       public function Level(num:uint)
       {
@@ -59,7 +61,7 @@ package jam
          addTween(this.alarmShake,false);
       }
 
-      // GUR TRAINER ADD
+      // GUR TRAINER ADD LIKE TAS SHIT AND STUFF
 
       // l52, h10
       public function toString() : String
@@ -72,6 +74,8 @@ package jam
       {
          return Stats.saveData.mode == 1 ? "H" : "L";
       }
+
+
 
       // GUR TRAINER STOP
       
@@ -368,6 +372,7 @@ package jam
             }
          }
          add(new BGEntity(this.bg = new Backdrop(ImgBG)));
+         add(this.tasWatermark = new TASWatermark());
          add(new EndLine());
          if(Assets.fuzz != null)
          {

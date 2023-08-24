@@ -234,7 +234,7 @@ package tas
             // Holy fuck I hate AS null handling.
             if (FP.world && FP.world is Level && (FP.world as Level).player && (FP.world as Level).player.active)
             {
-                //(FP.world as Level).tasWatermark.updateState();
+                (FP.world as Level).tasWatermark.updateState();
             }
             // Timescale modifier might change this so let's set it back juuuust in case
             FP.engine.setFrameRate(60);

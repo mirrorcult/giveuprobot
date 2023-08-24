@@ -46,12 +46,12 @@ package jam
          graphic = img = new Image(new BitmapData(320,240));
          this.colorTransform = new ColorTransform(1,1,1,0);
          img.tint = this.colorTransform;
-         layer = Layer.ABOVE_ALL;
+         layer = Layer.TRANSITION;
          if(mode == GOTO_NEXT)
          {
             var tent:Title = new Title(36, "Give Up, ROBOT",FP.camera.x + 160,FP.camera.y + 120);
             tent.text.angle = 290 + Math.random() * 140;
-            tent.layer = Layer.ABOVE_ALL + 1; // hehe
+            tent.layer = Layer.ABOVE_ALL;
             FP.world.add(tent);
          }
       }
