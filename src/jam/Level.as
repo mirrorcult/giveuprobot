@@ -197,7 +197,7 @@ package jam
          getClass(Particle, vec);
          for each(p in vec)
          {
-            p.die();
+            p.die(true);
          }
       }
       

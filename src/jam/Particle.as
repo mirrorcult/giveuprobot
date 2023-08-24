@@ -35,11 +35,13 @@ package jam
          addTween(this.alarmDelay,false);
       }
       
-      public function die() : void
+      public function die(levelDying:Boolean = false) : void
       {
          visible = false;
          active = false;
-         this.alarm.active = false;;
+         this.alarm.active = false;
+         if (!levelDying)
+            FP.world.remove(this);
          (FP.world as Level).particles.push(this);
       }
       

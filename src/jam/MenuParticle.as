@@ -11,7 +11,7 @@ package jam
          super();
       }
       
-      override public function die() : void
+      override public function die(levelDying:Boolean = false) : void
       {
          visible = false;
          active = false;
