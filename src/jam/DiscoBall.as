@@ -21,7 +21,7 @@ package jam
          graphic = SprBall = new Spritemap(ImgBall,64,64);
          SprBall.alpha = 0.1;
          SprBall.add("spin", [0, 1, 2, 3], 1/10, true);
-         SprBall.play("spin");
+         SprBall.set(32, 32);
       }
       
       override public function update() : void
@@ -38,7 +38,7 @@ package jam
       
       public function start() : void
       {
-         SprBall.rate = 10;
+         SprBall.play("spin");
          SprBall.alpha = 1;
          SprBall.scaleX = SprBall.scaleY = 1.4;
          this.appear = true;
