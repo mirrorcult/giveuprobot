@@ -86,7 +86,7 @@ package jam
          var a:Entity = null;
          var t:Title = null;
          super.begin();
-         addTween(this.presAlarm);
+         addTween(this.presAlarm, true);
          t = new Title(16, "Adult Swim Games Presents",160,40, true, 6710886, true, true)
          t.layer = Layer.MENU_TEXT;
          this.presents = t.text;

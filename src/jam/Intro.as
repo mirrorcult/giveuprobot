@@ -376,9 +376,9 @@ package jam
          super.begin();
          Assets.setMusic(new Sfx(Assets.MusIntro));
          Engine.flash = false;
-         addTween(this.alarmUnderscore);
-         addTween(this.alarmText);
-         addTween(this.alarm);
+         addTween(this.alarmUnderscore, true);
+         addTween(this.alarmText, true);
+         addTween(this.alarm, true);
          var t:Title = new Title(16, "", 16, 16);
          add(t);
          this.text = t.text;

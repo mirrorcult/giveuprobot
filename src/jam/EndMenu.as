@@ -27,7 +27,7 @@ package jam
       {
          this.alarm = new Alarm(120,this.cont,Tween.PERSIST);
          super();
-         addTween(this.alarm);
+         addTween(this.alarm, true);
          // TODO engine handle music properly like gur2 does
          Assets.setMusic();
          this.rank = 1;

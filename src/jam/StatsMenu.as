@@ -93,7 +93,7 @@ package jam
          // forgive my sins
          var t:Title = null;
          super.begin();
-         addTween(this.alarmColors);
+         addTween(this.alarmColors, true);
          this.text = (add(new Title(24, "", 160, 16, true, 0xFFFFFF, true)) as Title).text as FlashingText;
          this.inText = (add(t = new Title(16, "", 160, 120, true, 0xFFFFFF, true)) as Title).text as FlashingText;
          t.layer = Layer.MENU_TEXT;

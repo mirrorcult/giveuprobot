@@ -95,7 +95,7 @@ package jam
          {
             Stats.save();
          }
-         addTween(this.alarm);
+         addTween(this.alarm, true);
          addTween(this.aScore,false);
          add(new Title(16, "Scoring Time", 160, 20));
       }
