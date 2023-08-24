@@ -38,7 +38,6 @@ package jam
       
       public function FuzzTransition(mode:uint, goto1:Class = null, long:Boolean = false, lvl:uint = 1)
       {
-         var t:Text = null;
          super();
          this.mode = mode;
          this.goto1 = goto1;
@@ -47,18 +46,20 @@ package jam
          graphic = img = new Image(new BitmapData(320,240));
          this.colorTransform = new ColorTransform(1,1,1,0);
          img.tint = this.colorTransform;
-         layer = -500000000;
+         layer = Layer.ABOVE_ALL;
          if(mode == GOTO_NEXT)
          {
             var tent:Title = new Title(36, "Give Up, ROBOT",FP.camera.x + 160,FP.camera.y + 120);
             tent.text.angle = 290 + Math.random() * 140;
-            tent.layer = -500000001;
+            tent.layer = Layer.ABOVE_ALL + 1; // hehe
             FP.world.add(tent);
          }
       }
       
-      override public function update() : void
+      override public function render() : void
       {
+         img.source.noise(Math.random() * 100);
+
          if(this.up)
          {
             if(this.long)
@@ -111,13 +112,7 @@ package jam
                FP.world.remove(this);
             }
          }
-      }
-      
-      override public function render() : void
-      {
-         img.source.noise(Math.random() * 100);
-         img.tint.alphaMultiplier = this.alpha;
-         img.updateBuffer();
+         img.alpha = this.alpha;
          super.render();
       }
    }

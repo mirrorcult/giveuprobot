@@ -96,7 +96,7 @@ package jam
          addTween(this.alarmColors);
          this.text = (add(new Title(24, "", 160, 16, true, 0xFFFFFF, true)) as Title).text as FlashingText;
          this.inText = (add(t = new Title(16, "", 160, 120, true, 0xFFFFFF, true)) as Title).text as FlashingText;
-         t.layer = -100;
+         t.layer = Layer.MENU_TEXT;
          this.hitText = (add(new Title(8, "Z/A - Time    ENTER - Continue",160,232, true, 0xFFFFFF, true)) as Title).text as FlashingText;
          for(var i:int = 0; i < Assets.TOTAL_LEVELS[Stats.saveData.mode]; i++)
          {

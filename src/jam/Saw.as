@@ -14,7 +14,7 @@ package jam
          super(x,y,16,16);
          graphic = SprSaw = new Spritemap(ImgSaw,16,16);
          SprSaw.flipped = flip;
-         layer = 10;
+         layer = Layer.SAW;
          SprSaw.add("spin", [0,1,2,3], 1/3, true);
          SprSaw.play("spin");
       }

@@ -88,11 +88,11 @@ package jam
          super.begin();
          addTween(this.presAlarm);
          t = new Title(16, "Adult Swim Games Presents",160,40, true, 6710886, true, true)
-         t.layer = -1050;
+         t.layer = Layer.MENU_TEXT;
          this.presents = t.text;
          add(t);
          t = new Title(36, "Give Up, ROBOT",160,64, true, 0xFFFFFF, true, true)
-         t.layer = -1000;
+         t.layer = Layer.MENU_TEXT;
          this.title = t.text;
          add(t);
          a = new Entity();
@@ -103,7 +103,7 @@ package jam
          spr.scaleY = 4;
          spr.alpha = 0.1;
          spr.play("spin");
-         a.layer = -1000;
+         a.layer = Layer.BEHIND_MENU_TEXT;
          a.x = 32;
          a.y = -8;
          add(a);

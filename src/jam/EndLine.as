@@ -14,7 +14,7 @@ package jam
       {
          super();
          this.level = FP.world as Level;
-         layer = 100000;
+         layer = Layer.ABOVE_BG_BEHIND_BLOCKS;
       }
       
       override public function render() : void

@@ -30,6 +30,12 @@ package jam
          super(x,y,width,height);
          addTween(this.alarm,false);
       }
+
+      override public function added() : void
+      {
+         super.added();
+         getEndY();
+      }
       
       override public function update() : void
       {

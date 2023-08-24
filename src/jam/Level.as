@@ -114,7 +114,6 @@ package jam
       {
          this.clearParticles();
          removeAll();
-         System.gc();
          this.build();
       }
       
@@ -236,7 +235,6 @@ package jam
       {
          var o:XML = null;
          var h:int = 0;
-         var vec:Vector.<Entity> = null;
          var e:Block = null;
          var yy:int = 0;
          Stats.saveData.levelNum = this.levelNum;
@@ -291,15 +289,6 @@ package jam
          add(new Block(-8,0,8,this.height));
          add(new Block(0,-8,this.width,8));
          this.player.cameraFollow();
-         getClass(Block, vec);
-         for each(e in vec)
-         {
-            e.player = this.player;
-            if(e is FallingPlat)
-            {
-               (e as FallingPlat).getEndY();
-            }
-         }
          var ts:String = null;
          if(Stats.saveData.mode == 0)
          {
@@ -311,13 +300,13 @@ package jam
          }
          var lte:Title = new Title(48, ts ,20 + FP.camera.x,20 + FP.camera.y, true, 3355443);
          this.levelText = lte.text;
-         lte.layer = 100000;
+         lte.layer = Layer.ABOVE_BG_BEHIND_BLOCKS;
          add(lte);
          if(Assets.timer)
          {
             var ltte:Title = new Title(24, Stats.saveData.formattedTime,20 + FP.camera.x, 60 + FP.camera.y, true, 2236962);
             this.timer = ltte.text;
-            ltte.layer = 100000;
+            ltte.layer = Layer.ABOVE_BG_BEHIND_BLOCKS;
             add(ltte);
          }
          if(Stats.saveData.mode == 0)
@@ -329,17 +318,17 @@ package jam
                var t1:Title = new Title(16, "LEFT / RIGHT to move\nX or S or UP to jump",32,146, true, 3355443);
                t1.x += t1.text.width / 2;
                t1.y += t1.text.height / 2;
-               t1.layer = 100000;
+               t1.layer = Layer.ABOVE_BG_BEHIND_BLOCKS;
                add(t1);
                var t2:Title = new Title(16,"when jumping, hold it\nfor maximum height",324,128, true, 3355443);
                t2.x += t2.text.width / 2;
                t2.y += t2.text.height / 2;
-               t2.layer = 100000;
+               t2.layer = Layer.ABOVE_BG_BEHIND_BLOCKS;
                add(t2);
                var t3:Title = new Title(16, "Z or A to grapple, then\nUP / DOWN to adjust\nand LEFT / RIGHT to swing",704,96, true, 3355443);
                t3.x += t3.text.width / 2;
                t3.y += t3.text.height / 2;
-               t3.layer = 100000;
+               t3.layer = Layer.ABOVE_BG_BEHIND_BLOCKS;
                add(t3);
             }
             else if(this.levelNum == 2) 
@@ -347,7 +336,7 @@ package jam
                var t4:Title = new Title(16,"REMEMBER:\nZ or A to grapple, then\nUP / DOWN to adjust\nand LEFT / RIGHT to swing",32,116, true, 3355443);
                t4.x += t4.text.width / 2;
                t4.y += t4.text.height / 2;
-               t4.layer = 100000;
+               t4.layer = Layer.ABOVE_BG_BEHIND_BLOCKS;
                add(t4);
             }
             else if(this.levelNum == 3)
@@ -355,7 +344,7 @@ package jam
                var t5:Title = new Title(16, "RECALL:\nZ or A to grapple, then\nUP / DOWN to adjust\nand LEFT / RIGHT to swing",56,128, true, 3355443);
                t5.x += t5.text.width / 2;
                t5.y += t5.text.height / 2;
-               t5.layer = 100000;
+               t5.layer = Layer.ABOVE_BG_BEHIND_BLOCKS;
                add(t5);
             }
             else if(this.levelNum == 4)
@@ -363,7 +352,7 @@ package jam
                var t6:Title = new Title(16, "SERIOUSLY:\nZ or A to grapple, then\nUP / DOWN to adjust\nand LEFT / RIGHT to swing",24,116, true, 3355443);
                t6.x += t6.text.width / 2;
                t6.y += t6.text.height / 2;
-               t6.layer = 100000;
+               t6.layer = Layer.ABOVE_BG_BEHIND_BLOCKS;
                add(t6);
             }
             else if(this.levelNum == 49)
@@ -371,7 +360,7 @@ package jam
                var t7:Title = new Title(16, "Go for distance!",128,160, true, 3355443);
                t7.x += t7.text.width / 2;
                t7.y += t7.text.height / 2;
-               t7.layer = 100000;
+               t7.layer = Layer.ABOVE_BG_BEHIND_BLOCKS;
                add(t7);
             }
          }

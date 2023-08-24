@@ -115,7 +115,7 @@ package jam
          height = 10;
          originX = 4;
          originY = 5;
-         layer = -900;
+         layer = Layer.PLAYER;
          this.setSprite(SprIdle,15);
          addTween(this.alarmVarJTime,false);
          visible = false;

@@ -30,7 +30,7 @@ package jam
          super();
          visible = false;
          active = false;
-         layer = 1000;
+         layer = Layer.ABOVE_PLAYER;
          addTween(this.alarm,false);
          addTween(this.alarmDelay,false);
       }

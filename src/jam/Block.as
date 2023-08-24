@@ -4,6 +4,7 @@ package jam
    import net.flashpunk.graphics.Spritemap;
    import net.flashpunk.FP;
    import net.flashpunk.utils.Draw;
+   import net.flashpunk.World;
    
    public class Block extends Entity
    {
@@ -31,6 +32,11 @@ package jam
          this.height = height;
          type = "solid";
          this.graphic = SprTiles = new Spritemap(ImgTiles,8,8)
+      }
+
+      public override function added():void
+      {
+         this.player = (FP.world as Level).player;
       }
 
       public function moveV(num:Number) : void

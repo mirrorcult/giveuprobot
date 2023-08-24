@@ -11,7 +11,7 @@ package jam
       public function BGEntity(bg:Backdrop)
       {
          super(0,0,bg);
-         this.layer = 1000000000;
+         this.layer = Layer.BG;
       }
    }
 }

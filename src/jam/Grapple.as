@@ -70,7 +70,7 @@ package jam
          height = 6;
          originX = 3;
          originY = 3;
-         layer = -1000;
+         layer = Layer.ABOVE_PLAYER;
          graphic = SprGrapple = new Spritemap(ImgGrapple,4,4);
          SprGrapple.set(2, 2);
          SprGrapple.scaleX = 3;
