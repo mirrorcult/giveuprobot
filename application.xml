@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <application xmlns="http://ns.adobe.com/air/application/32.0">
-  <id>GURTrainer</id>
+  <id>GURTaserDeluxe</id>
   <versionNumber>1.0</versionNumber>
-  <filename>GURTrainer</filename>
+  <filename>GURTaserDeluxe</filename>
   <name>
-    <text xml:lang="en">GUR Trainer</text>
+    <text xml:lang="en">GURTaser Deluxe</text>
   </name>
   <copyright>.v.</copyright>
   <initialWindow>
-    <title>GUR Trainer</title>
-    <content>GURTrainer.swf</content>
+    <title>GURTaser Deluxe</title>
+    <content>GURTaserDeluxe.swf</content>
     <systemChrome>standard</systemChrome>
     <transparent>false</transparent>
     <visible>true</visible>

@@ -10,9 +10,9 @@ cd %~dp0 & cd ..
 :: NOTICE: all paths are relative to project root
 
 :: Your certificate information
-set CERT_NAME="GUR2rainer"
-set CERT_PASS=69HpB1W*5*FmqU
-set CERT_FILE="bat\GUR2rainer.p12"
+set CERT_NAME="GURTaserDeluxe"
+set CERT_PASS=myballssoawesomesocool
+set CERT_FILE="bat\GURTaserDeluxe.p12"
 set SIGNING_OPTIONS=-storetype pkcs12 -keystore %CERT_FILE% -storepass %CERT_PASS%
 
 :: Application descriptor
@@ -28,7 +28,7 @@ set APP_ID=%APP_ID: =%
 
 :: Output
 set AIR_PATH=air
-set AIR_NAME=GUR2aser
+set AIR_NAME=GURTaserDeluxe
 
 :validation
 findstr /C:"<id>%APP_ID%</id>" "%APP_XML%" > NUL
