@@ -21,12 +21,15 @@ package jam
       private const MAX_FALL:Number = 3.5;
       
       private var alarm:Alarm;
+
+      private var endYCalculated:Boolean = false;
       
       private var endY:uint;
       
       public function FallingPlat(x:int, y:int, width:int, height:int)
       {
          this.alarm = new Alarm(60,this.fall,Tween.ONESHOT);
+         this.layer = Layer.MOVING_BLOCKS;
          super(x,y,width,height);
          addTween(this.alarm,false);
       }
@@ -34,11 +37,13 @@ package jam
       override public function added() : void
       {
          super.added();
-         getEndY();
       }
       
       override public function update() : void
       {
+         if (!this.endYCalculated)
+            getEndY();
+
          var i:int = 0;
          if(this.started)
          {
@@ -102,6 +107,7 @@ package jam
          {
             this.endY = (FP.world as Level).height + 24;
          }
+         this.endYCalculated = true;
       }
       
       private function fall() : void

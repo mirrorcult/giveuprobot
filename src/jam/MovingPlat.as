@@ -39,6 +39,7 @@ package jam
       public function MovingPlat(x:int, y:int, width:int, height:int, endX:int, endY:int, speed:Number, dontStart:Boolean, stopAtEnd:Boolean)
       {
          super(x,y,width,height);
+         this.layer = Layer.MOVING_BLOCKS;
          this.startX = x;
          this.startY = y;
          this.endX = endX;
