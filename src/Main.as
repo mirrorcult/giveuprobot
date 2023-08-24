@@ -13,6 +13,7 @@ package
    import flash.display.StageScaleMode;
    import flash.display.StageDisplayState;
    import net.flashpunk.debug.Console;
+   import flash.filesystem.File;
    
    public class Main extends Engine
    {
@@ -39,6 +40,10 @@ package
          Input.define("camleft", Key.Q);
          Input.define("camright", Key.E);
          FP.world = new MainMenu();
+
+         var tasPath:File = File.applicationStorageDirectory.resolvePath("TAS");
+         tasPath.resolvePath("L").createDirectory();
+         tasPath.resolvePath("H").createDirectory();
 
          FP.console.enable();
          FP.console.visible = false;

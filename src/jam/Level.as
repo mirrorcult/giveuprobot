@@ -49,6 +49,8 @@ package jam
       private var alarmRestart:Alarm;
 
       public var tasWatermark:TASWatermark;
+
+      public var tasNextRestart:Boolean = false;
       
       public function Level(num:uint)
       {
@@ -74,6 +76,18 @@ package jam
       public function getPrefix() : String
       {
          return Stats.saveData.mode == 1 ? "H" : "L";
+      }
+
+      public function startTAS() : void
+      {
+         FP.tas.StartRecording();
+         if (tasNextRestart)
+         {
+            tasNextRestart = false;
+            FP.tas.Load(this);
+            FP.tas.StartPlayback();
+         }
+         tasWatermark.updateState();
       }
 
       // GUR TRAINER STOP
@@ -115,7 +129,9 @@ package jam
          /* GURTaser Deluxe */
          if (Input.pressed("return"))
          {
-            add(new FuzzTransition(FuzzTransition.MENU,MainMenu))         
+            add(new FuzzTransition(FuzzTransition.MENU,MainMenu))
+            FP.tas.FlushPlayback();
+            FP.tas.FlushRecording();
          }
          else if (Input.pressed("next"))
          {
@@ -125,9 +141,14 @@ package jam
          {
             add(new FuzzTransition(FuzzTransition.NEW, null, false, levelNum - 1));
          }
-         else if (Input.pressed("restart") && player != null)
+         else if (Input.pressed("restart") && player != null && player.active)
          {
             player.die();
+         }
+         else if (Input.pressed("tas") && player.active)
+         {
+            player.die();
+            tasNextRestart = true;
          }
       }
       
@@ -257,6 +278,8 @@ package jam
       
       private function build() : void
       {
+         FP.tas.FlushPlayback();
+         FP.tas.FlushRecording();
          var o:XML = null;
          var h:int = 0;
          var e:Block = null;
@@ -398,6 +421,7 @@ package jam
          }
          this.time = 0;
          this.countTime = true;
+         startTAS();
       }
    }
 }
