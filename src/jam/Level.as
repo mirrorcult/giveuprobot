@@ -100,13 +100,13 @@ package jam
          }
          this.bg.x = this.bg.x - 0.25;
          this.bg.y = this.bg.y - 0.25;
-         this.levelText.x = 20 + FP.camera.x;
-         this.levelText.y = 20 + FP.camera.y;
+         this.levelText.x = FP.camera.x;
+         this.levelText.y = FP.camera.y;
          if(Assets.timer)
          {
             this.timer.text = Stats.saveData.getTimePlus(this.time);
-            this.timer.x = 20 + FP.camera.x;
-            this.timer.y = 60 + FP.camera.y;
+            this.timer.x = FP.camera.x;
+            this.timer.y = FP.camera.y;
          }
       }
       
