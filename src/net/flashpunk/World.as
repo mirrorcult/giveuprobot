@@ -48,7 +48,6 @@
 		{
 			// update the entities
 			var e:Entity = _updateFirst;
-			var i:uint = 0;
 			while (e)
 			{
 				if (e.active)
@@ -58,12 +57,6 @@
 				}
 				if (e._graphic && e._graphic.active) e._graphic.update();
 				e = e._updateNext;
-				i++;
-
-				if (i >= 1000)
-				{
-					var a:uint = 0;
-				}
 			}
 		}
 		
@@ -75,7 +68,6 @@
 		public function render():void 
 		{
 			// render the entities in order of depth
-			var j:uint = 0;
 			var e:Entity,
 				i:int = _layerList.length;
 			while (i --)
@@ -85,11 +77,6 @@
 				{
 					if (e.visible) e.render();
 					e = e._renderPrev;
-				}
-				j++;
-				if (j >= 1000)
-				{
-					var a:uint = 0;
 				}
 			}
 		}
@@ -1019,9 +1006,6 @@
 						_layerSort = true;
 					}
 					_layerList.length --;
-
-					if (_layerList.length > 10000000)
-						var a:int = 0;
 				}
 			}
 			_layerCount[e._layer] --;
