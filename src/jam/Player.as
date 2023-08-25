@@ -217,7 +217,7 @@ package jam
          }
          else if(Input.pressed("grapple"))
          {
-            var sfx:Sfx = new Sfx(Assets.SndGrapple);
+            var sfx:Sfx = new Sfx(Assets.SndThrow);
             sfx.play();
             FP.world.add(this.grapple = new Grapple(this.level,this,x,y,this.dir));
          }
