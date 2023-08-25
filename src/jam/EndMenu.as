@@ -46,7 +46,7 @@ package jam
          super.update();
          if(this.canGo && Input.pressed("skip"))
          {
-            var sfx:Sfx = new Sfx(Assets.SndWin());
+            var sfx:Sfx = new Sfx(Assets.SndWin);
             sfx.play();
             add(new FuzzTransition(FuzzTransition.MENU,StatsMenu));
             this.canGo = false;
