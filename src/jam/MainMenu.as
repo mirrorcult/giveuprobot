@@ -158,10 +158,10 @@ package jam
          this.clearMenu();
          this.toRemove.push(add(new MenuButton("Music: " + (Assets.musicVolume * 100).toFixed(0) + "%",160,100,this.musicVolume)));
          this.toRemove.push(add(new MenuButton("Sounds: " + (FP.volume * 100).toFixed(0) + "%",160,120,this.soundVolume)));
-         this.toRemove.push(add(new MenuButton("Particles: " + (Assets.particles?"On":"Off"),160,140,this.toggleParticles)));
-         this.toRemove.push(add(new MenuButton("Game Timer: " + (Assets.timer?"On":"Off"),160,160,this.toggleTimer)));
-         this.toRemove.push(add(new MenuButton("Blur: " + (Engine.canFlash?"On":"Off"),160,180,this.toggleBlur)));
-         this.toRemove.push(add(new MenuButton("Screenshake: " + (Assets.screenshake?"On":"Off"),160,200,this.toggleScreenshake)));
+         this.toRemove.push(add(new MenuButton("Particles: " + (Assets.particles?"On ":"Off"),160,140,this.toggleParticles)));
+         this.toRemove.push(add(new MenuButton("Game Timer: " + (Assets.timer?"On ":"Off"),160,160,this.toggleTimer)));
+         this.toRemove.push(add(new MenuButton("Blur: " + (Engine.canFlash?"On ":"Off"),160,180,this.toggleBlur)));
+         this.toRemove.push(add(new MenuButton("Screenshake: " + (Assets.screenshake?"On ":"Off"),160,200,this.toggleScreenshake)));
          this.toRemove.push(add(new MenuButton("Back",160,220,this.gotoMenuMain)));
       }
       
@@ -308,7 +308,7 @@ package jam
          Assets.particles = !Assets.particles;
          if(Assets.particles)
          {
-            m.text.text = "Particles: On";
+            m.text.text = "Particles: On ";
          }
          else
          {
@@ -322,7 +322,7 @@ package jam
          Engine.canFlash = !Engine.canFlash;
          if(Engine.canFlash)
          {
-            m.text.text = "Blur: On";
+            m.text.text = "Blur: On ";
          }
          else
          {
@@ -336,7 +336,7 @@ package jam
          Assets.screenshake = !Assets.screenshake;
          if(Assets.screenshake)
          {
-            m.text.text = "Screenshake: On";
+            m.text.text = "Screenshake: On ";
          }
          else
          {

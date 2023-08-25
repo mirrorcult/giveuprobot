@@ -222,7 +222,10 @@ package jam
             this.particleBurst(this.draw);
             this.partsAt = this.draw;
 
-            title = new Title(24, "0", 160, this.draw);
+            // dude WHAT why do you need to preallocate how long the text should be
+            title = new Title(24, "000,000,000", 160, this.draw);
+            title.text.text = "0"
+            title.text.centerOO();
             this.scoreText = title.text;
             this.scoreText.scaleX = this.scoreText.scaleY = 1.5;
             add(title);
@@ -233,7 +236,6 @@ package jam
          else if(this.num == 6)
          {
             new Sfx(Assets.SndWin).play();
-            this.particleBurst(165);
             this.particleBurst(195);
             if(Stats.saveData.levelNum >= Assets.TOTAL_LEVELS[Stats.saveData.mode])
             {
