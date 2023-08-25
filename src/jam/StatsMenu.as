@@ -98,10 +98,11 @@ package jam
          var t:FlashingText = null;
          super.begin();
          addTween(this.alarmColors, true);
-         this.text = (add(new FlashingText(24, "", 160, 16, true, 0xFFFFFF)) as FlashingText).text;
-         this.inText = (add(t = new FlashingText(16, "", 160, 120, true, 0xFFFFFF)) as FlashingText).text;
+         this.text = (add(new FlashingText(24, "Deaths", 160, 16, true, 0xFFFFFF)) as FlashingText).text;
+         this.inText = (add(t = new FlashingText(16, "000,000,000,000", 160, 120, true, 0xFFFFFF)) as FlashingText).text;
+         this.inText.text = "";
          t.layer = Layer.MENU_TEXT;
-         this.hitText = (add(new FlashingText(8, "Z/A - Time    ENTER - Continue",160,232, true, 0xFFFFFF)) as FlashingText).text;
+         this.hitText = (add(new FlashingText(8, "Z/A - Time    ENTER - Continue    ",160,232, true, 0xFFFFFF)) as FlashingText).text;
          for(var i:int = 0; i < Assets.TOTAL_LEVELS[Stats.saveData.mode]; i++)
          {
             g = new GraphDot();
@@ -116,6 +117,7 @@ package jam
       
       override public function render() : void
       {
+         super.render();
          var last:GraphDot = null;
          var g:GraphDot = null;
          for each(g in this.dots)
@@ -132,7 +134,7 @@ package jam
       {
          this.loadGraph("Time",Stats.saveData.time_stage);
          this.inText.text = Stats.saveData.formattedTime;
-         this.hitText.text = "Z/A - Deaths    ENTER - Continue";
+         this.hitText.text = "Z/A - Deaths    ENTER - Continue    ";
          this.inText.centerOO();
          this.hitText.centerOO();
       }
@@ -176,7 +178,7 @@ package jam
          {
             this.inText.text = "None!";
          }
-         this.hitText.text = "Z/A - Time      ENTER - Continue";
+         this.hitText.text = "Z/A - Time      ENTER - Continue    ";
          this.inText.centerOO();
          this.hitText.centerOO();
       }
