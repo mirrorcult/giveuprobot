@@ -124,6 +124,8 @@ package jam
          SprFP.scaleX = 1;
          SprFP.scaleY = 1;
          add(c);
+         FP.camera.x = 0;
+         FP.camera.y = 0;
          Assets.setMusic(new Sfx(Assets.MusMenu));
          this.toRemove = new Vector.<Entity>();
          this.gotoMenuMain();
@@ -352,7 +354,7 @@ package jam
          this.title.visible = true;
          this.presents.visible = true;
          this.toRemove.push(add(new MenuButton("New Game",160,120,this.newGameNormal)));
-         if(Stats.haveHardMode())
+         if (true) //if(Stats.haveHardMode())
          {
             this.toRemove.push(add(new MenuButton("New HARD Game",160,140,this.newGameHard)));
          }
