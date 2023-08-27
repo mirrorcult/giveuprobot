@@ -23,6 +23,11 @@ package jam
       override public function update() : void
       {
          spr.alpha = spr.alpha + 0.05;
+         if (spr.alpha + 0.05 >= 1 && (FP.world as Level).player)
+         {
+            // next frame player will be active, so start TAS now
+            (FP.world as Level).startTAS();
+         }
          if(spr.alpha >= 1 && (FP.world as Level).player)
          {
             FP.world.remove(this);

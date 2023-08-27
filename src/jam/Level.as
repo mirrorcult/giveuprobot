@@ -145,7 +145,7 @@ package jam
          {
             player.die();
          }
-         else if (Input.pressed("tas") && player.active)
+         else if (Input.pressed("tas") && player != null && player.active)
          {
             player.die();
             tasNextRestart = true;
@@ -421,7 +421,6 @@ package jam
          }
          this.time = 0;
          this.countTime = true;
-         startTAS();
       }
    }
 }
