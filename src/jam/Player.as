@@ -53,7 +53,7 @@ package jam
       
       private var dir:int = 1;
       
-      private var grapple:Grapple;
+      public var grapple:Grapple;
       
       private const MAX_FALL:Number = 3.0;
       
@@ -83,6 +83,14 @@ package jam
 
       public var cameraOffsetY:int = 0;
       
+      /* grapple copied for convenience */
+
+      public var direction:Number = 0;
+      public var momentum:Number = 0;
+      public var radius:Number = 0;
+
+      /* end */
+
       public function Player(level:Level, x:int, y:int)
       {
          SprIdle = new Spritemap(ImgIdle,10,18);
@@ -120,6 +128,9 @@ package jam
          addTween(this.alarmVarJTime,false);
          visible = false;
          active = false;
+
+         FP.console.SELECT_LIST.length = 0;
+         FP.console.SELECT_LIST.push(this)
       }
       
       public function die(b:Block = null) : void
@@ -390,6 +401,9 @@ package jam
       {
          this.grapple = null;
          this.grappleWall = false;
+         this.momentum = 0;
+         this.direction = 0;
+         this.radius = 0;
       }
    }
 }

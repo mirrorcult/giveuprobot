@@ -16,6 +16,7 @@ package net.flashpunk.debug
 	import net.flashpunk.utils.Input;
 	import net.flashpunk.utils.Key;
 	import tas.TASUtility;
+	import jam.Player;
 	
 	/**
 	 * FlashPunk debug console; can use to log information or pause the game and view/move Entities and step the frame.
@@ -619,6 +620,29 @@ package net.flashpunk.debug
 						}
 						g.lineStyle(1, 0xFFFFFF);
 						g.drawRect((e.x - FP.camera.x) * sx - 3, (e.y - FP.camera.y) * sy - 3, 6, 6);
+					}
+
+					if (e is Player)
+					{
+						var p:Player = e as Player;
+						var h:Number = p.hSpeed;
+						var v:Number = p.vSpeed;
+
+						// calculate from what the h/v speed would be if you released grapple, if grappled
+						if (p.grapple != null && p.grapple.hitWall)
+						{
+							return;
+							//h = p.expectedHSpeed;
+							//v = p.expectedVSpeed;
+						}
+
+						// h-speed
+						g.lineStyle(1, 0xFF0000);
+						g.drawRect((e.x - FP.camera.x) * sx, (e.y - FP.camera.y) * sy, h * sx, 1);
+
+						// v-speed, tip to tail
+						g.lineStyle(1, 0x0000FF)
+						g.drawRect((e.x - FP.camera.x + h) * sx, (e.y - FP.camera.y) * sy, 1, v * sy);
 					}
 				}
 			}

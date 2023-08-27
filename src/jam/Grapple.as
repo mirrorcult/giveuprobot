@@ -20,17 +20,47 @@ package jam
       
       private var level:Level;
       
-      public var direction:Number;
-      
+      private var _direction:Number;
+      public function set direction(value:Number):void
+      {
+         _direction = value;
+         updatePlayerCachedVars();
+      }
+
+      public function get direction():Number
+      {
+         return _direction;
+      }
+
+      private var _radius:Number;
+      public function set radius(value:Number):void
+      {
+         _radius = value;
+         updatePlayerCachedVars();
+      }
+
+      public function get radius():Number
+      {
+         return _radius;
+      }
+
+      private var _momentum:Number;
+      public function set momentum(value:Number):void
+      {
+         _momentum = value;
+         updatePlayerCachedVars();
+      }
+
+      public function get momentum():Number
+      {
+         return _momentum;
+      }
+
       private var wall:Block;
       
       public var dir:int;
       
       private const SAW_MOMENTUM:Number = 5.0;
-      
-      public var radius:Number;
-      
-      public var momentum:Number = 0;
       
       public var player:Player;
       
@@ -54,9 +84,19 @@ package jam
       
       private const MOVE_SPEED:uint = 5;
       
-      private var hitWall:Boolean = false;
+      public var hitWall:Boolean = false;
       
       private const MIN_RADIUS:Number = 16;
+
+      private function updatePlayerCachedVars(reset:Boolean = false):void
+      {
+         if (!this.player)
+            return;
+         
+         this.player.direction = this.direction;
+         this.player.momentum = this.momentum;
+         this.player.radius = this.radius;
+      }
       
       public function Grapple(level:Level, player:Player, x:int, y:int, dir:int)
       {
