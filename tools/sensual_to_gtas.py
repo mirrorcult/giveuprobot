@@ -28,7 +28,7 @@ for file in pathlib.Path().glob("TAS_*.txt"):
 
     frameCount = 0
     with file.open() as f:
-        lines = f.readlines()
+        lines = f.readlines()[18:]
         
         finished_file = ""
         i = 0
